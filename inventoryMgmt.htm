@@ -1,0 +1,263 @@
+<!--- index.cfm --->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--- select2 --->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!--- datatables --->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="sb-4">Inventory Management</h1>
+        <div class="sb-3">
+            <div class="btn-group" role="group" aria-label="Inventory actions">
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addItemModal">
+                    Add New Item
+                </button>
+                <a href="shoppingList.htm" class="btn btn-outline-primary">View Shopping List</a>
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#manageCategoriesModal">
+                    Categories
+                </button>
+
+                <a href="manageoptions.cfm" class="btn btn-outline-primary">Manage Options</a>
+                
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#manageTagsModal">
+                    Tags
+                </button>
+
+                <a href="reviewrecipes.htm" class="btn btn-outline-primary">Review Recipes</a>
+                <a href="/" class="btn btn-outline-primary">Meal Planner</a>
+            </div>
+        </div>
+
+        <div class="sb-6">
+            <table class="table table-striped table-hover" id="inventoryTable">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Category</th>
+                        <th>Item</th>
+                        <th>On Hand</th>
+                        <th>Target</th>
+                        <th>RO Pnt</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Your custom JS -->
+    <script src="js/inventoryMgmt.js"></script>
+    <!--- sweet alert --->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--- datables --->
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- Add Item Modal -->
+    <div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addItemModalLabel">Add New Item</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="addItemForm">
+              <div class="sb-3">
+                <label for="itemName" class="form-label">Item Name</label>
+                <input type="text" class="form-control" id="itemName" required>
+              </div>
+              <div class="sb-3">
+                <label for="itemCategory" class="form-label">Category</label>
+                <select class="form-select" id="itemCategory" required>
+                    <option value="">Select a category</option>
+                    <!-- Categories will be populated here -->
+                </select>
+              </div>
+              <div class="sb-3">
+                <label for="currentQuantity" class="form-label">Current Quantity</label>
+                <input type="number" class="form-control" id="currentQuantity" required>
+              </div>
+              <div class="sb-3">
+                <label for="desiredQuantity" class="form-label">Desired Quantity</label>
+                <input type="number" class="form-control" id="desiredQuantity" required>
+              </div>
+              <div class="sb-3">
+                <label for="reorderThreshold" class="form-label">Level at which to purchase</label>
+                <input type="number" class="form-control" id="reorderThreshold" required>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="saveNewItem">Save Item</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Item Modal -->
+    <div class="modal fade" id="editItemModal" tabindex="-1" aria-labelledby="editItemModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editItemModalLabel">Edit Item</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="editItemForm">
+              <input type="hidden" id="editItemId">
+              <div class="sb-3">
+                <label for="editItemName" class="form-label">Item Name</label>
+                <input type="text" class="form-control" id="editItemName" required>
+              </div>
+              <div class="sb-3">
+                <label for="editItemCategory" class="form-label">Category</label>
+                <select class="form-select" id="editItemCategory" required>
+                  <option value="">Select a category</option>
+                </select>
+              </div>
+              <div class="sb-3">
+                <label for="editCurrentQuantity" class="form-label">Current Quantity</label>
+                <input type="number" class="form-control" id="editCurrentQuantity" required>
+              </div>
+              <div class="sb-3">
+                <label for="editDesiredQuantity" class="form-label">Desired Quantity</label>
+                <input type="number" class="form-control" id="editDesiredQuantity" required>
+              </div>
+              <div class="sb-3">
+                <label for="editReorderThreshold" class="form-label">Level at which to purchase</label>
+                <input type="number" class="form-control" id="editReorderThreshold" required>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="saveEditButton">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Manage Categories Modal -->
+    <div class="modal fade" id="manageCategoriesModal" tabindex="-1" aria-labelledby="manageCategoriesModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="manageCategoriesModalLabel">Manage Categories</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="sb-3">
+                        <input type="text" class="form-control" id="newCategoryName" placeholder="New Category Name">
+                        <button class="btn btn-primary mt-2" id="addCategoryBtn">Add Category</button>
+                    </div>
+                    <ul class="list-group" id="categoryList">
+                        <!-- Categories will be populated here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Manage Meal Types Modal -->
+    <div class="modal fade" id="manageMealTypesModal" tabindex="-1" aria-labelledby="manageMealTypesModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="manageMealTypeModalLabel">Manage Meal Types</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="sb-3">
+                        <input type="text" class="form-control" id="newMealTypeName" placeholder="New Meal Type Name">
+                        <button class="btn btn-primary mt-2" id="addmealTypeBtn">Add Meal Type</button>
+                    </div>
+                    <ul class="list-group" id="mealTypesList">
+                        <!-- Meal Types will be populated here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- quantity options -->
+    <div class="modal fade" id="manageQuantityOptionsModal" tabindex="-1" aria-labelledby="manageQuantityOptionsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="manageMealTypeModalLabel">Manage Quantity Options</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="sb-3">
+                        <input type="text" class="form-control" id="newQuantityOptionsName" placeholder="New Quantity Option">
+                        <button class="btn btn-primary mt-2" id="addQuantityOptionsBtn">Add Quantity Option</button>
+                    </div>
+                    <ul class="list-group" id="quantityOptionsList">
+                        <!-- Meal Types will be populated here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- measurementunits -->
+    <div class="modal fade" id="manageMeasurementUnitsModal" tabindex="-1" aria-labelledby="manageMeasurementUnitsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="manageMeasurementUnitsModalLabel">Manage Units of Measurements</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="sb-3">
+                        <input type="text" class="form-control" id="newMeasurementUnitsName" placeholder="New Unit of Measurement">
+                        <button class="btn btn-primary mt-2" id="addMeasurementUnitsBtn">Add Unit of Measurement</button>
+                    </div>
+                    <ul class="list-group" id="MeasurementUnitsList">
+                        <!-- Meal Types will be populated here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- tags -->
+    <div class="modal fade" id="manageTagsModal" tabindex="-1" aria-labelledby="manageTagsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="manageTagsModalLabel">Manage Tags</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="sb-3">
+                        <input type="text" class="form-control" id="newTagsName" placeholder="New Tag">
+                        <button class="btn btn-primary mt-2" id="addTagsBtn">Add Tag</button>
+                    </div>
+                    <ul class="list-group" id="TagsList">
+                        <!-- Meal Types will be populated here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

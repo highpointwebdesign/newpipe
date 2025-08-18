@@ -1,0 +1,18 @@
+{
+    "app":{
+        "cfengine":"lucee"
+    },
+    "name":"newpipe",
+    "host":"0.0.0.0",
+    "openBrowser":true,
+    "openBrowserURL":"https://localhost:8443/",
+    "web":{
+        "http":{
+            "port":"80"
+        },
+        "SSL":{
+            "enable":"true",
+            "port":"443"
+        }
+    }
+}

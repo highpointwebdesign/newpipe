@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Inventory Management</title>
+		<!-- Bootstrap 5 CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<!--- select2 --->
+		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+		<!--- datatables --->
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
+
+<style>
+.skeleton {
+    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.skeleton-text {
+    width: 60%;
+    height: 47px;
+/*    margin-bottom: 0.5em;*/
+}
+
+.skeleton-list {
+    width: 80%;
+    height: 24px;
+    margin-bottom: 0.3em;
+}
+</style>
+	</head>
+	<body>
+		<div class="container mt-5">
+		<h1 class="sb-4">Meal Prep</h1>
+		<div class="sb-3">
+			<div class="btn-group" role="group" aria-label="Inventory actions">
+				<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addItemModal">
+				Add New Meal
+				</button>
+				<a href="shoppingList.htm" class="btn btn-outline-primary">View Shopping List</a>
+				<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#manageCategoriesModal">
+				Manage Categories
+				</button>
+				<a href="meals.htm" class="btn btn-primary">Meals</a>
+			</div>
+		</div>
+		<main class="page-content">
+			<section class="section single-recipe" data-show-rating-modal="show-modal" data-rating-cookie="already_shown_rating_modal_3378">
+			<div class="container">
+			<div class="grid">
+			<div class="social-mobile grid__col-xs-12 grid__col-lg-11 grid__col--mobile single-recipe__recipe_column">
+			<div class="grid grid--card u--margin-bottom-0">
+				<div class="grid__col-xs-12 grid__col-md-8 u--margin-bottom-0 single-recipe__recipe_column">
+					<header class="post__header">
+						<h1 class="post__title skeleton skeleton-text"></h1>
+					</header>
+				</div>
+			</div>
+			<div class="grid grid--card">
+			<div class="grid__col-xs-12 grid__col-md-8 grid__col--mobile">
+			<article class="post">
+				<div class="post__body">
+					<div class="grid single-recipe__action-buttons">
+						<div id="recipe" class="container">
+							<div class="single-recipe__ingredients">
+								<h2>Ingredients</h2>
+								<ul id="ingredientsList">
+								    <li class="skeleton skeleton-list"></li>
+								    <li class="skeleton skeleton-list"></li>
+								    <li class="skeleton skeleton-list"></li>
+								</ul>
+								<!-- <ul id="ingredientsList">
+									<li>{ingredient}
+										<div class="checkbox">
+											<label for="0_0">
+											<input id="0_0" name="0_0" type="checkbox">
+											1 beef Cross Rib Roast, Chuck Arm Roast or Chuck Shoulder Roast (about 2-1/2 pounds)</label>
+										</div>
+									</li>
+								</ul> -->
+							</div>
+<!-- 							<div class="single-recipe__preparation">
+								<h2>Preparation</h2>
+								<h3 class="single-recipe__preparation-group">
+									Alternate Cooking Method:
+								</h3>
+								<ol>
+									<li>
+										<h3 class="u--margin-bottom-5">Step
+											1
+										</h3>
+										<p>Cut beef Cross Rib Roast into 12 equal pieces. Place in 4-1/2 to 5-1/2-quart slow cooker. Add onions, tomatoes, potatoes, broth, garlic, thyme, salt and pepper. Cover and cook on HIGH 5 to 6 hours or on LOW 8 to 9 hours or until beef is fork-tender. (No stirring is necessary during cooking.)</p>
+									</li>
+									<li>
+										<h3 class="u--margin-bottom-5">Step
+											2                                                    
+										</h3>
+										<p>Stir in broccoli slaw; continue cooking, covered, 30 minutes or until broccoli slaw is crisp-tender. Turn off slow cooker. Stir in peas; let stand, covered, 5 minutes.                                                    </p>
+									</li>
+									<li>
+										<h3 class="u--margin-bottom-5">Step
+											3                                                    
+										</h3>
+										<p>This recipe can be made in a 6-quart electric pressure cooker. Cut beef Cross Rib Roast into 1-inch pieces. Place beef roast in pressure cooker; top with onions, tomatoes, broth, garlic, thyme, salt and pepper. Close and lock pressure cooker lid. Use beef, stew or high-pressure setting on pressure cooker; program 15 minutes on pressure cooker timer. Use quick-release feature to release pressure; carefully remove lid. Add broccoli slaw and frozen potatoes. Close and lock pressure cooker lid. Use beef, stew or high-pressure setting on pressure cooker; program 3 minutes on pressure cooker timer. Use quick-release feature to release pressure; carefully remove lid. Add peas and return pressure cooker lid.  Let stand 5 minutes. (This recipe variation was tested in an electric pressure cooker at high altitude. Cooking at an altitude of less than 3000 feet may require slightly less cooking time. Refer to the manufacturer’s instructions.)                                                    </p>
+									</li>
+								</ol>
+							</div> -->
+						</div>
+					</div>
+			</article>
+		</main>
+		</div>
+		<!-- Bootstrap 5 JS Bundle (includes Popper) -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		<!-- Your custom JS -->
+		<script src="js/recipe.js"></script>
+		<!--- sweet alert --->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<!--- datables --->
+		<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+	</body>
+</html>

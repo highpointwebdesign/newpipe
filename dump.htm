@@ -1,0 +1,42 @@
+var card =
+'<div class="col-sm-4">' +
+'  <div class="card meal-card position-relative" data-meal-id="'+ meal.id +'">' +
+'    <div class="card-header">' +
+'      <h5 class="card-title">'+ meal.title +</h5>' +
+'    </div>' +
+'    <div class="card-container"style="background-color: bgColor + '">' +
+'      <div class="card-flip">'
+'        <!-- Front side of the card. -->' +
+'        <div class="card-front card-body">         ' 
+'          <div class="card-text text-white">' +
+'            Servings: '+ meal.servings +' | Meal:  meal.mealType +' 
+'          </div>' +
+'          <div class="btn-group" role="group">' +
+'             <button class="btn btn-light btn-sm btn-view">Ingredients</button>' +
+'             <button class="btn btn-dark btn-sm btn-edit">Edit</button>' +
+'          </div>' +
+'        </div>' +
+
+'        <!-- Back side of the card. -->' +
+'        <div class="card-body card-back">' +
+'          <h5 class="text-white">' +
+'            Ingredients for ' + meal.title + ''
+'          </h5>' +
+'          <ul class="list-group" style="background-color: #ffffff !important">';
+'          $.each(meal.ingredients, function (i, ing) '{
+'            card += <li class="list-group-item list-group-item-action">+ ing.quantity + + ing.unit + of + ing.ingredient_name +</li>';
+'          })';
+'          card += </ul>' +
+'          <button class="btn btn-dark btn-sm btn-flip-back mt-2 pull-right">Close</button>' +
+'        </div>' +
+
+'        <div class="card-footer d-sm-flex justify-content-between align-items-center">' +
+'          <div class="card-footer-link mb-4 mb-sm-0">' +
+'            <p class="card-text text-dark d-inline">Servings: + meal.servings + </p>' +
+'          </div>' +
+'          <a href="javascript:void(0);" class="btn btn-primary">Edit</a>' +
+'        </div>' +
+'      </div>' +
+'    </div>' +
+'  </div>' +
+'</div>';
