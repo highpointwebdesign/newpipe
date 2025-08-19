@@ -10,43 +10,20 @@ component {
         var result = [];
         var mealsQ = queryExecute(
             "Select
-                m.id,
+                m.mealID,
                 m.title,
                 m.servings,
-                m.mealType,
+                m.mealTypeID,
                 m.created_at,
-                -- Case m.mealType
-                --     When 'Breakfast'
-                --     Then '##5C3799'
-                --     When 'Lunch'
-                --     Then '##1ab5ac'
-                --     When 'Dinner'
-                --     Then '##2953E8'
-                --     When 'Dessert'
-                --     Then '##ff887c'
-                --     Else '##e1e1e1'
-                -- End As backgroundColor,
-                Case m.mealType
-                    When 1
-                    Then 'Breakfast'
-                    When 2
-                    Then 'Lunch'
-                    When 3
-                    Then 'Dinner'
-                    When 4
-                    Then 'Dessert'
-                    When 8
-                    Then 'Sides, Sauces,and Spices'
-                End As mealTypeID,
-                c.typeColor
+                t.mealTypeName,
+                t.mealTypeColor
             From
-                meals m left Join
-                mealtype c On c.typeID = m.mealType
+                meals m Left Join
+                meal_types t On t.mealTypeID = m.mealTypeID
             Where
                 m.isDeleted = 0
             Order By
                 m.title,
-                c.typeColor,
                 m.title;
 ",
             {},
@@ -55,40 +32,47 @@ component {
         
         for (var i = 1; i <= mealsQ.recordCount; i++) {
             var meal = {
-                id          : mealsQ.id[i],
+                mealID          : mealsQ.mealID[i],
                 title       : mealsQ.title[i],
                 servings    : mealsQ.servings[i],
-                mealType    : mealsQ.mealType[i],
-                typeColor    : mealsQ.typeColor[i],
                 mealTypeID    : mealsQ.mealTypeID[i],
+                created_at  : mealsQ.created_at[i],
+                mealTypeName    : mealsQ.mealTypeName[i],
+                mealTypeColor    : mealsQ.mealTypeColor[i],
                 // googleColorCodeID    : mealsQ.googleColorCodeID[i],
                 // borderColor    : mealsQ.typeColor[i],
-                created_at  : mealsQ.created_at[i],
                 ingredients : []
             };
             var ingrQ = queryExecute(
                 "Select
-                    i.id,
-                    i.ingredient_name,
-                    i.quantity,
-                    i.unit,
-                    m.unit_name
+                    mi.miID,
+                    mi.mealID,
+                    mi.ingredientID,
+                    mi.quantity,
+                    mi.unit,
+                    r.ingredient_name,
+                    uom.unitName,
+                    uom.baseUnit,
+                    uom.unitType
                 From
-                    meal_ingredients i Inner Join
-                    measurementunits m On m.id = i.unit
+                    meal_ingredients mi Left Join
+                    raw_ingredients r On r.ingredientID = mi.ingredientID Left Join
+                    measurementunits uom On uom.unitID = mi.unit
                 Where
-                    i.meal_id = :mealId
+                    mi.mealID = :mealId
                 Order By
-                    i.ingredient_name",
-                { mealId = meal.id },
+                    r.ingredient_name",
+                { mealId = meal.mealID },
                 { datasource = variables.datasource }
             );
             for (var j = 1; j <= ingrQ.recordCount; j++) {
                 arrayAppend(meal.ingredients, {
-                    id              : ingrQ.id[j],
+                    miID              : ingrQ.miID[j],
+                    mealID : ingrQ.mealID[j],
+                    ingredientID : ingrQ.ingredientID[j],
                     ingredient_name : ingrQ.ingredient_name[j],
                     quantity        : ingrQ.quantity[j],
-                    unit            : ingrQ.unit_name[j]
+                    unit            : ingrQ.unitName[j]
                 });
             }
             arrayAppend(result, meal);
@@ -131,7 +115,7 @@ component {
             // Insert each ingredient.
             for (var ingredient in ingredientsArray) {
                 queryExecute(
-                    "INSERT INTO meal_ingredients (meal_id, ingredient_name, quantity, unit) VALUES (:mealId, :ingName, :quantity, :unit)",
+                    "INSERT INTO meal_ingredients (mealID, ingredient_name, quantity, unit) VALUES (:mealId, :ingName, :quantity, :unit)",
                     {
                         mealId   : mealId,
                         ingName  : ingredient.ingredientName,
@@ -168,11 +152,11 @@ component {
 
         // Deserialize the provided JSON of meal IDs.
         var mealIdsArr = deserializeJSON(arguments.mealIds);
-        var meal_idArr = [];
+        var mealIDArr = [];
         
         // Build dynamic placeholders for the IN clause.
         for (var i = 1; i <= arrayLen(mealIdsArr); i++) {
-            meal_idArr.append(mealIdsArr[i]);
+            mealIDArr.append(mealIdsArr[i]);
         }
         
         // Aggregate ingredients by name and unit.
@@ -185,7 +169,7 @@ component {
         //     From
         //         dbrhzbrqhhlw5g.meal_ingredients m
         //     WHERE 
-        //         m.meal_id IN (" & placeholderList & ")         
+        //         m.mealID IN (" & placeholderList & ")         
         //     Group By
         //         m.ingredient_name,
         //         m.unit
@@ -199,17 +183,17 @@ component {
             i.unit,
             Sum(i.quantity) As totalQuantity,
             m.title,
-            i.meal_id
+            i.mealID
         From
             meal_ingredients i Inner Join
-            meals m On i.meal_id = m.id
+            meals m On i.mealID = m.miID
         Where
-            i.meal_id In ( #arrayToList(meal_idArr)# )
+            i.mealID In ( #arrayToList(mealIDArr)# )
         Group By
             i.ingredient_name,
             i.unit,
             m.title,
-            i.meal_id
+            i.mealID
         Order By
             i.ingredient_name,
             i.unit,
@@ -260,7 +244,7 @@ component {
         
         // Additionally, sum the total servings for selected meal IDs.
         var servingsQuery = queryExecute(
-             "SELECT SUM(servings) AS totalServings FROM meals WHERE id IN (#arrayToList(meal_idArr)#)",
+             "SELECT SUM(servings) AS totalServings FROM meals WHERE id IN (#arrayToList(mealIDArr)#)",
              {},
              { datasource = variables.datasource }
         );
@@ -275,7 +259,7 @@ component {
                 ingredients: ingrList.recordCount()
             },
             ingredients: outputIngredients ,
-            placeholderList: #arrayToList(meal_idArr)#
+            placeholderList: #arrayToList(mealIDArr)#
         };
     }
 
@@ -285,39 +269,42 @@ component {
      * @param mealIds – JSON string representing an array of selected meal IDs.
      * Performs a database retrieval of the meal and its ingredients.
      */
-    remote any function getMealById(required numeric mealId) {
+    remote query function getMealById(required numeric mealId) {
         var mealData = {};
-        // Retrieve the meal info.
-        var mealQ = queryExecute(
-            "SELECT id, title, servings, details, mealType FROM meals WHERE id = :mealId",
+
+        var mealsQ = queryExecute(
+            "Select
+                mi.miID,
+                mi.mealID,
+                mi.ingredientID,
+                mi.quantity,
+                mi.unit,
+                r.ingredient_name,
+                uom.unitName,
+                uom.baseUnit,
+                uom.unitType,
+                m.title,
+                m.servings,
+                m.mealTypeID,
+                mt.mealTypeName,
+                mt.mealTypeColor,
+                m.fav,
+                m.details
+            From
+                meal_ingredients mi Left Join
+                raw_ingredients r On r.ingredientID = mi.ingredientID Left Join
+                measurementunits uom On uom.unitID = mi.unit Right Join
+                meals m On mi.mealID = m.mealID Left Join
+                meal_types mt On m.mealTypeID = mt.mealTypeID
+            Where
+                mi.mealID = :mealID
+            Order By
+                mi.miID;",
             { mealId = arguments.mealId },
             { datasource = variables.datasource }
         );
-        if (mealQ.recordCount > 0) {
-            mealData = {
-                id         : mealQ.id[1],
-                title      : mealQ.title[1],
-                details    : mealQ.details[1],
-                servings   : mealQ.servings[1],
-                mealType   : mealQ.mealType[1],
-                ingredients: []
-            };
-            // Retrieve associated ingredients.
-            var ingrQ = queryExecute(
-                "SELECT id, ingredient_name, quantity, unit FROM meal_ingredients WHERE meal_id = :mealId order by ingredient_name",
-                { mealId = arguments.mealId },
-                { datasource = variables.datasource }
-            );
-            for (var i = 1; i <= ingrQ.recordCount; i++) {
-                arrayAppend(mealData.ingredients, {
-                    id              : ingrQ.id[i],
-                    ingredientName  : ingrQ.ingredient_name[i],
-                    quantity        : ingrQ.quantity[i],
-                    unit            : ingrQ.unit[i]
-                });
-            }
-        }
-        return mealData;
+        
+        return mealsQ;
     }
 
     remote any function updateMeal(required numeric mealId, required string title, required numeric servings, required string ingredients) {
@@ -338,7 +325,7 @@ component {
             
             // Remove all existing ingredients for this meal.
             queryExecute(
-                "DELETE FROM meal_ingredients WHERE meal_id = :mealId",
+                "DELETE FROM meal_ingredients WHERE mealID = :mealId",
                 { mealId = arguments.mealId },
                 { datasource = variables.datasource }
             );
@@ -346,7 +333,7 @@ component {
             // Insert each ingredient again.
             for (var ingredient in ingredientsArray) {
                 queryExecute(
-                    "INSERT INTO meal_ingredients (meal_id, ingredient_name, quantity, unit) VALUES (:mealId, :ingName, :quantity, :unit)",
+                    "INSERT INTO meal_ingredients (mealID, ingredient_name, quantity, unit) VALUES (:mealId, :ingName, :quantity, :unit)",
                     {
                         mealId   : arguments.mealId,
                         ingName  : ingredient.ingredientName,
@@ -363,7 +350,7 @@ component {
     // remote any function getMealIngredients(required numeric mealId) {
     //     var result = [];
     //     var ingredientQry = queryExecute(
-    //         "SELECT id, meal_id, ingredient_name, quantity, unit order by ingredient_name asc",
+    //         "SELECT id, mealID, ingredient_name, quantity, unit order by ingredient_name asc",
     //         {},
     //         { datasource = variables.datasource }
     //     );
@@ -371,7 +358,7 @@ component {
     //     for (var i = 1; i <= ingredientQry.recordCount; i++) {
     //         var ingredients = {
     //             id          : ingredientQry.id[i],
-    //             meal_id       : ingredientQry.meal_id[i],
+    //             mealID       : ingredientQry.mealID[i],
     //             ingredient_name    : ingredientQry.ingredient_name[i],
     //             quantity    : ingredientQry.quantity[i],
     //             unit  : ingredientQry.unit[i]
@@ -388,9 +375,9 @@ component {
         // The list attribute in the options ensures that the mealIds parameter (a comma-separated list)
         // is properly expanded into multiple values.
         var sql = "
-            SELECT id, meal_id, ingredient_name, quantity, unit
+            SELECT id, mealID, ingredient_name, quantity, unit
             FROM meal_ingredients
-            WHERE meal_id IN (:mealIds)
+            WHERE mealID IN (:mealIds)
             ORDER BY ingredient_name ASC
         ";
         
@@ -403,7 +390,7 @@ component {
         for (var i = 1; i <= ingredientQry.recordCount; i++) {
             var ingredientData = {
                 id              : ingredientQry.id[i],
-                meal_id         : ingredientQry.meal_id[i],
+                mealID         : ingredientQry.mealID[i],
                 ingredient : ingredientQry.ingredient_name[i],
                 quantity        : ingredientQry.quantity[i],
                 unit            : ingredientQry.unit[i]

@@ -73,7 +73,7 @@
                 <h5 class="card-title">Meal Details</h5>
               </div>
               <div class="card-body">
-                  <input type="hidden" id="mealId" value="">
+                  <!--- <input type="hidden" id="mealId" value=""> --->
                   <div class="mb-3">
                     <label for="mealTitle" class="form-label">Meal Title</label>
                     <input type="text" class="form-control" id="mealTitle" required />
@@ -193,129 +193,7 @@
               </div>
             </div>
 
-            <div class="col">            
-              <div class="card">
-                <div class="card-header">
-                  <div class="skeleton title"></div>
-                </div>
-                <div class="card-body">
-                  <div id="skeleton_1" class="accordion accordion-no-gutter">
-                    <div class="accordion__item">
-                      <div class="accordion__header collapsed"
-                           data-bs-toggle="collapse"
-                           data-bs-target="#ingredientList_1"
-                           aria-expanded="false">
-                        <span class="accordion__header--text"><div class="skeleton text-line short"></div></span>
-                        <span class="accordion__header--indicator style_two"></span>
-                      </div>
-                      <div id="ingredientList_1"
-                           class="accordion__body collapse"
-                           data-bs-parent="#skeleton_1">
-                        <div class="accordion__body--text">
-                            <div class="skeleton title"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <p class="card-text d-inline"><div class="skeleton text-line short"></div></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">            
-              <div class="card">
-                <div class="card-header">
-                  <div class="skeleton title"></div>
-                </div>
-                <div class="card-body">
-                  <div id="skeleton_1" class="accordion accordion-no-gutter">
-                    <div class="accordion__item">
-                      <div class="accordion__header collapsed"
-                           data-bs-toggle="collapse"
-                           data-bs-target="#ingredientList_1"
-                           aria-expanded="false">
-                        <span class="accordion__header--text"><div class="skeleton text-line short"></div></span>
-                        <span class="accordion__header--indicator style_two"></span>
-                      </div>
-                      <div id="ingredientList_1"
-                           class="accordion__body collapse"
-                           data-bs-parent="#skeleton_1">
-                        <div class="accordion__body--text">
-                            <div class="skeleton title"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <p class="card-text d-inline"><div class="skeleton text-line short"></div></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">            
-              <div class="card">
-                <div class="card-header">
-                  <div class="skeleton title"></div>
-                </div>
-                <div class="card-body">
-                  <div id="skeleton_1" class="accordion accordion-no-gutter">
-                    <div class="accordion__item">
-                      <div class="accordion__header collapsed"
-                           data-bs-toggle="collapse"
-                           data-bs-target="#ingredientList_1"
-                           aria-expanded="false">
-                        <span class="accordion__header--text"><div class="skeleton text-line short"></div></span>
-                        <span class="accordion__header--indicator style_two"></span>
-                      </div>
-                      <div id="ingredientList_1"
-                           class="accordion__body collapse"
-                           data-bs-parent="#skeleton_1">
-                        <div class="accordion__body--text">
-                            <div class="skeleton title"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <p class="card-text d-inline"><div class="skeleton text-line short"></div></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">            
-              <div class="card">
-                <div class="card-header">
-                  <div class="skeleton title"></div>
-                </div>
-                <div class="card-body">
-                  <div id="skeleton_1" class="accordion accordion-no-gutter">
-                    <div class="accordion__item">
-                      <div class="accordion__header collapsed"
-                           data-bs-toggle="collapse"
-                           data-bs-target="#ingredientList_1"
-                           aria-expanded="false">
-                        <span class="accordion__header--text"><div class="skeleton text-line short"></div></span>
-                        <span class="accordion__header--indicator style_two"></span>
-                      </div>
-                      <div id="ingredientList_1"
-                           class="accordion__body collapse"
-                           data-bs-parent="#skeleton_1">
-                        <div class="accordion__body--text">
-                            <div class="skeleton title"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <p class="card-text d-inline"><div class="skeleton text-line short"></div></p>
-                </div>
-              </div>
-            </div>
+           
 
             
           </div>

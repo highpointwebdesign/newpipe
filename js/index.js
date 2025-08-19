@@ -409,9 +409,9 @@ console.log(ingredientsList);
                 listGroup +=
                   '<a href="javascript:void(0);" ' +
                     'class="list-group-item list-group-item-action">' +
-                    ing.ingredient_name + ' ' +
                     ing.quantity + ' ' +
-                    ing.unit +
+                    ing.unit + ' ' +
+                    ing.ingredient_name + 
                   '</a>';
               });
               listGroup += '</div>';
@@ -424,32 +424,33 @@ console.log(ingredientsList);
                       '<h5 class="card-title"><i class="fa-regular" style="border-radius: 50%;background-color:#ff887c;display: inline-block;width: 10px;height: 10px;margin-right: 5px;position: relative;top:-1px;background-color:' + meal.typeColor + '"></i>' + meal.title + '</h5>' +
                     '</div>' +
                     '<div class="card-body">' +
-                      '<div id="mealCard_' + meal.id + '" class="accordion accordion-no-gutter">' +
+                      '<div id="mealCard_' + meal.mealID + '" class="accordion accordion-no-gutter">' +
                         '<div class="accordion__item">' +
                           '<div class="accordion__header collapsed" ' +
                                'data-bs-toggle="collapse" ' +
-                               'data-bs-target="#ingredientList_' + meal.id + '" ' +
+                               'data-bs-target="#ingredientList_' + meal.mealID + '" ' +
                                'aria-expanded="false">' +
                             '<span class="accordion__header--text">Ingredients</span>' +
                             '<span class="accordion__header--indicator style_two"></span>' +
                           '</div>' +
-                          '<div id="ingredientList_' + meal.id + '" ' +
+                          '<div id="ingredientList_' + meal.mealID + '" ' +
                                'class="accordion__body collapse" ' +
-                               'data-bs-parent="#mealCard_' + meal.id + '">' +
+                               'data-bs-parent="#mealCard_' + meal.mealID + '">' +
                             '<div class="accordion__body--text">' +
                               listGroup +
                             '</div>' +
                           '</div>' +
                         '</div>' +
                       '</div>' +
-                      '<div id="mealCard_Desc_' + meal.id + '>' + meal.description +                        
+                      '<div id="mealCard_Desc_' + meal.mealID + '>' + meal.description +                        
                       '</div>' +
                     '</div>' +
                     '<div class="card-footer">' +
                       '<p class="card-text d-inline">Servings: ' + meal.servings + '</p>' +
                       '<div class="float-end">' +
-                        '<a href="javascript:void(0);" class="btn btn-primary btn-sm light btn-card btn-edit" data-meal_id="' + meal.id + '">Edit</a> ' +
-                        '<a href="javascript:void(0);" class="btn btn-danger btn-sm light btn-card me-1 btn-archive" data-meal-id="' + meal.id + '">Archive</a>' +
+                        // '<a href="javascript:void(0);" class="btn btn-primary btn-sm light btn-card btn-edit" data-meal_id="' + meal.mealID + '">Edit</a> ' +
+                        '<a href="meal_crud.cfm?id=' + meal.mealID + '" class="btn btn-primary btn-sm light btn-card">Edit</a> ' +
+                        '<a href="javascript:void(0);" class="btn btn-danger btn-sm light btn-card me-1 btn-archive" data-meal-id="' + meal.mealID + '">Archive</a>' +
                       '</div>' +
                     '</div>' +
                   '</div>' +
@@ -600,7 +601,7 @@ console.log(ingredientsList);
               // Construct the card markup using only name and desc
               var card =
                 '<div class="col-md-4 mb-3">' +
-                  '<div class="card meal-card position-relative" data-meal-id="'+ meal.id +'">' +
+                  '<div class="card meal-card position-relative" data-meal-id="'+ meal.mealID +'">' +
                     '<div class="card-body">' +
                       '<h5 class="card-title">' + meal.name + '</h5>' +
                       '<p class="card-text">' + meal.desc + '</p>' +
