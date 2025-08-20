@@ -5,8 +5,8 @@
 
 <cfparam name="form.mealID" default="0">
 
-<cfdump var="#form#">
-<cfdump var="#url#">
+<cfdump var="#form#" label="form">
+<cfdump var="#url#" label="url">
 
 <cfif structKeyExists(url, 'ID')>
 	<cfset form.mealID = url.iD>
@@ -14,7 +14,7 @@
 
 
 <cfswitch expression="#form.action#">
-	<cfcase value="addIngredient">
+	<cfcase value="addIngredient,savemeal">
 		<!--- add --->
 			<cfscript>	
 		        // Insert each ingredient.
@@ -45,6 +45,7 @@
 						// Insert each ingredient
 			            	// ENHANCEMENT: Create a query batch for better performance
 						for (i = 1; i <= arrayLen(ingredientIDArray); i++) {
+						 try {
 						    queryExecute(
 						        "INSERT INTO meal_ingredients (mealID, ingredientID, quantity, unit) VALUES (:mealId, :ingredientID, :quantity, :unit)",
 						        {
@@ -55,11 +56,21 @@
 						        },
 						        { datasource = 'sg' }
 						    );
+							} catch (any e) {
+							    // Log the error but continue with the next iteration
+							    writeLog(file="mealplanner", text="Error inserting ingredient #i#: #e.message#");
+							}
 						}
 			        }
-		        
-
 			</cfscript>
+			<cfset result.msg ="Ingredient added...">
+			<cfif form.action eq 'addIngredient'>
+				<cflocation url="meal_crud.cfm?id=#form.mealID#&status=1&action=#form.action#&status=#result.status#&msg=#result.msg#" addtoken="false">
+			<cfelse>
+				<cflocation url="/?status=1&action=#form.action#&status=#result.status#&msg=#result.msg#" addtoken="false">
+			</cfif>
+
+
 
 	</cfcase>
 
@@ -95,4 +106,9 @@
 <!--- <cflocation url="meal_crud.cfm?id=#form.id#&status=1&action=#form.action#&status=#result.status#&msg=#result.msg#" addtoken="false"> --->
 <cfoutput>
 <a href="meal_crud.cfm?id=#form.mealID#&status=1&action=#form.action#&status=#result.status#&msg=#result.msg#">continue.</a>
+
+<cfif structKeyExists(form, 'action') && form.action eq 'savemeal'>
+<br/>
+<a href="/?status=1&action=#form.action#&status=#result.status#&msg=#result.msg#">save meal and done</a>
+</cfif>
 </cfoutput>

@@ -72,7 +72,7 @@ Order By
                 <ul class="metismenu" id="menu">
                   <li><a href="index.htm">RV MEAL PLANNER</a></li>
                   <li><a class="nav-link" href="/" id="menu-recipes">MEAL CARDS</a></li>
-                  <li><a class="nav-link" href="calendar.htm" id="menu-calendar">MEAL PLANNER</a></li>
+                  <li><a class="nav-link" href="calendar.cfm" id="menu-calendar">MEAL PLANNER</a></li>
                   <li><a class="nav-link" href="mealplannershoppinglist.htm" id="menu-shopping_list">SHOPPING LIST</a></li>
                   <li><a class="nav-link" href="inventoryMgmt.htm" id="menu-shopping_list">INVENTORY MGMT (Beta)</a></li>
                 </ul>
@@ -128,7 +128,9 @@ Order By
                     <div class="row">
                       <div class="col-md-6">
                         <label for="servings" class="form-label">Servings</label>
-                        <input type="number" class="form-control" id="servings" name="servings" value="4" step="2" required/>
+                        <cfoutput>
+                        	<input type="number" class="form-control" id="servings" name="servings" value="#getMealCard.servings#" step="2" required/>
+                        </cfoutput>
                       </div>
                       <div class="col-md-6">
                         <label for="mealTypeID" class="form-label">Meal Type</label>
@@ -224,7 +226,7 @@ Order By
                 <!-- <a href="javascript:void(0);" class="card-link d-inline btn btn-primary">Save</a> -->
                 <div class="toolbar toolbar-bottom" role="toolbar" style="text-align: right;">
                   <button id="cancelMeal" class="btn btn-light" type="button">Cancel</button>
-                  <button type="submit" class="btn btn-primary">Save Meal</button>
+                  <button type="submit" class="btn btn-primary" name="action" value="savemeal">Save Meal</button>
                 </div>
               </div>
             </div>

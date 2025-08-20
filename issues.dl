@@ -1,0 +1,11 @@
+BUGS
+
+need to make the unit of measurements drop down so 1/8 for example is available as a selection.
+
+IN mealplanner.js around line 95
+	console.log('mealType');
+	console.log(mealType);
+	// this is evaluating a text string rather than the numerical value
+	//  i need to have a global var wit the color codes for the mealTypeColors
+	//  this is causing the returned events from gcal to not hvae the correct colors.
+	//  also need to update the gcal to store the MealTypeID rather than MealType for consistency

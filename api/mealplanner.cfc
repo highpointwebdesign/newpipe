@@ -7,7 +7,12 @@ component {
      * Returns a list of meals along with their ingredients.
      */
     remote any function getMeals() {
-        var result = [];
+        var result = {
+            meals: [],
+            // mealTypes: []
+        };
+        
+        // Get all meals with their details
         var mealsQ = queryExecute(
             "Select
                 m.mealID,
@@ -23,26 +28,24 @@ component {
             Where
                 m.isDeleted = 0
             Order By
-                m.title,
-                m.title;
-",
+                m.title",
             {},
             { datasource = variables.datasource }
         );
         
+        // Process meals and their ingredients
         for (var i = 1; i <= mealsQ.recordCount; i++) {
             var meal = {
-                mealID          : mealsQ.mealID[i],
-                title       : mealsQ.title[i],
-                servings    : mealsQ.servings[i],
-                mealTypeID    : mealsQ.mealTypeID[i],
-                created_at  : mealsQ.created_at[i],
-                mealTypeName    : mealsQ.mealTypeName[i],
-                mealTypeColor    : mealsQ.mealTypeColor[i],
-                // googleColorCodeID    : mealsQ.googleColorCodeID[i],
-                // borderColor    : mealsQ.typeColor[i],
-                ingredients : []
+                mealID: mealsQ.mealID[i],
+                title: mealsQ.title[i],
+                servings: mealsQ.servings[i],
+                mealTypeID: mealsQ.mealTypeID[i],
+                created_at: mealsQ.created_at[i],
+                mealTypeName: mealsQ.mealTypeName[i],
+                mealTypeColor: mealsQ.mealTypeColor[i],
+                ingredients: []
             };
+            
             var ingrQ = queryExecute(
                 "Select
                     mi.miID,
@@ -65,18 +68,45 @@ component {
                 { mealId = meal.mealID },
                 { datasource = variables.datasource }
             );
+            
             for (var j = 1; j <= ingrQ.recordCount; j++) {
                 arrayAppend(meal.ingredients, {
-                    miID              : ingrQ.miID[j],
-                    mealID : ingrQ.mealID[j],
-                    ingredientID : ingrQ.ingredientID[j],
-                    ingredient_name : ingrQ.ingredient_name[j],
-                    quantity        : ingrQ.quantity[j],
-                    unit            : ingrQ.unitName[j]
+                    miID: ingrQ.miID[j],
+                    mealID: ingrQ.mealID[j],
+                    ingredientID: ingrQ.ingredientID[j],
+                    ingredient_name: ingrQ.ingredient_name[j],
+                    quantity: ingrQ.quantity[j],
+                    unit: ingrQ.unitName[j],
+                    baseUnit: ingrQ.baseUnit[j]  // Adding baseUnit as needed by your JS
                 });
             }
-            arrayAppend(result, meal);
+            
+            arrayAppend(result.meals, meal);
         }
+        
+        // Get all meal types
+        // var mealTypeQ = queryExecute(
+        //     "Select
+        //         mt.mealTypeID,
+        //         mt.mealTypeName,
+        //         mt.mealTypeColor
+        //     From
+        //         meal_types mt
+        //     Order By
+        //         mt.orderby",
+        //     {},
+        //     { datasource = variables.datasource }
+        // );
+        
+        // // Process meal types
+        // for (var m = 1; m <= mealTypeQ.recordCount; m++) {
+        //     arrayAppend(result.mealTypes, {
+        //         mealTypeID: mealTypeQ.mealTypeID[m],
+        //         mealTypeName: mealTypeQ.mealTypeName[m],
+        //         mealTypeColor: mealTypeQ.mealTypeColor[m]
+        //     });
+        // }
+        
         return result;
     }
     
@@ -274,8 +304,8 @@ component {
 
         var mealsQ = queryExecute(
             "Select
+                m.mealID As mealID1,
                 mi.miID,
-                mi.mealID,
                 mi.ingredientID,
                 mi.quantity,
                 mi.unit,
@@ -297,9 +327,9 @@ component {
                 meals m On mi.mealID = m.mealID Left Join
                 meal_types mt On m.mealTypeID = mt.mealTypeID
             Where
-                mi.mealID = :mealID
+                m.mealID = :mealID
             Order By
-                mi.miID;",
+                mi.miID",
             { mealId = arguments.mealId },
             { datasource = variables.datasource }
         );
@@ -374,12 +404,36 @@ component {
         // Build the SQL using the IN clause.
         // The list attribute in the options ensures that the mealIds parameter (a comma-separated list)
         // is properly expanded into multiple values.
+        // var sql = "
+        //     SELECT id, mealID, ingredient_name, quantity, unit
+        //     FROM meal_ingredients
+        //     WHERE mealID IN (:mealIds)
+        //     ORDER BY ingredient_name ASC
+        // ";
         var sql = "
-            SELECT id, mealID, ingredient_name, quantity, unit
-            FROM meal_ingredients
-            WHERE mealID IN (:mealIds)
-            ORDER BY ingredient_name ASC
-        ";
+            Select
+                r.ingredient_name,
+                Sum(m.quantity) As quantity,
+                m.unit,
+                m.ingredientID,
+                u.unitName,
+                u.baseUnit,
+                u.unitType
+            From
+                meal_ingredients m Left Join
+                raw_ingredients r On r.ingredientID = m.ingredientID Left Join
+                measurementunits u On u.unitID = m.unit
+            Where
+                m.mealID In (:mealIds)
+            Group By
+                r.ingredient_name,
+                m.unit,
+                m.ingredientID,
+                u.unitName,
+                u.baseUnit,
+                u.unitType
+            Order By
+                r.ingredient_name";
         
         var ingredientQry = queryExecute(
             sql,
@@ -389,11 +443,10 @@ component {
 
         for (var i = 1; i <= ingredientQry.recordCount; i++) {
             var ingredientData = {
-                id              : ingredientQry.id[i],
-                mealID         : ingredientQry.mealID[i],
-                ingredient : ingredientQry.ingredient_name[i],
                 quantity        : ingredientQry.quantity[i],
-                unit            : ingredientQry.unit[i]
+                baseUnit        : ingredientQry.baseUnit[i],
+                baseUnit        : ingredientQry.baseUnit[i],
+                ingredient_name        : ingredientQry.ingredient_name[i]
             };
             arrayAppend(result, ingredientData);
         }
@@ -1111,9 +1164,9 @@ component {
 
     remote function measurementunits() httpmethod="GET" returnformat="JSON" {
         var q = queryExecute(
-                "SELECT id, CONCAT(unit_name, ' (', base_unit, ')') AS unit_name, base_unit, unit_type
+                "SELECT unitID, CONCAT(unitName, ' (', baseUnit, ')') AS unitName, baseUnit, unitType
                 FROM measurementunits
-                ORDER BY unit_name",
+                ORDER BY unitName",
                 {  },
                 { datasource = "sg" }
             );
@@ -1121,10 +1174,10 @@ component {
         var results = [];
         for (var row in q) {
             arrayAppend(results, {
-                id = row.id
-                , name = row.unit_name
-                , base_unit = row.base_unit
-                , unit_type = row.unit_type
+                unitID = row.unitID
+                , name = row.unitName
+                , baseUnit = row.baseUnit
+                , unitType = row.unitType
             });
         }
 
@@ -1154,9 +1207,9 @@ component {
 
     remote function mealtypes() httpmethod="GET" returnformat="JSON" {
         var q = queryExecute(
-                "SELECT typeID, typeName, typeColor
-                FROM mealtype
-                ORDER BY typeName",
+                "SELECT mealTypeID, mealTypeName, mealTypeColor
+                FROM meal_types
+                ORDER BY mealTypeName",
                 {  },
                 { datasource = "sg" }
             );
@@ -1164,8 +1217,8 @@ component {
         var results = [];
         for (var row in q) {
             arrayAppend(results, {
-                typeID = row.typeID
-                , typeName = row.typeName
+                mealTypeID = row.mealTypeID
+                , mealTypeName = row.mealTypeName
                 , typeColor = row.typecolor                
             });
         }
@@ -1175,9 +1228,9 @@ component {
 
     remote function mealtypesForSelectOption() httpmethod="GET" returnformat="JSON" {
         var q = queryExecute(
-                "SELECT typeID, typeName
-                FROM mealtype
-                ORDER BY typeName",
+                "SELECT mealTypeID, mealTypeName, mealTypeColor
+                FROM meal_types
+                ORDER BY mealTypeName",
                 {  },
                 { datasource = "sg" }
             );
@@ -1185,9 +1238,9 @@ component {
         var results = [];
         for (var row in q) {
             arrayAppend(results, {
-                id = row.typeID,
-                text = row.typeName,
-                value = row.typeID
+                id = row.mealTypeID,
+                text = row.mealTypeName,
+                value = row.mealTypeID
             });
         }
 

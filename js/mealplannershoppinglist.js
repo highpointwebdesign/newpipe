@@ -19,8 +19,10 @@ if (!userAccessToken) {
 
 $(function() {
   // Initialize date picker
-  const start = moment().add(1, 'days');
-  const end = moment().add(14, 'days');
+  //  const start = moment().add(1, 'days');
+  const start = '09/03/2025';
+  //  const end = moment().add(14, 'days');;
+  const end = moment().add(120, 'days');
   
   $(CONFIG.selectors.dateFilter).daterangepicker({
     autoUpdateInput: true,
@@ -75,9 +77,9 @@ async function loadMealEvents(startDate, endDate) {
     const apiMsg = error.responseJSON?.error?.message;
     
     if (code === 401) {
-      alertMsg = `Invalid or expired credentials.<br/>Click on <a href="/calendar.htm">Meal Planner</a> to reauthenticate.`;
+      alertMsg = `Invalid or expired credentials.<br/>Click on <a href="/calendar.cfm">Meal Planner</a> to reauthenticate.`;
     } else {
-      alertMsg = "Error loading meal events. Please try again.";
+      alertMsg = "Error loading meal events. Please try again. Error: " + error;
     }
 
     // Render into your alert container
@@ -116,7 +118,7 @@ async function fetchCalendarEvents(startDate, endDate) {
         singleEvents: true
       },
       success: function(response) {
-console.log(response.items);
+// console.log(response.items);
         resolve(response.items);
       },
       error: function(err) {
@@ -262,7 +264,8 @@ async function fetchMealIngredients(mealIds) {
         },
         dataType: "json",
         success: function(response) {
-          resolve(response || []);
+          // resolve(response || []);
+          populateIngredientsList(response);
         },
         error: function(xhr, textStatus, errorThrown) {
           if (attempts === 0) {
@@ -280,11 +283,39 @@ async function fetchMealIngredients(mealIds) {
   });
 }
 
+function populateIngredientsList(ingredients) {
+  // Assuming you have a container element with id "ingredientsList"
+  const listContainer = $("#shoppingList");
+  
+  // Clear existing content
+  listContainer.empty();
+  
+  // Create and append list items
+  ingredients.forEach(item => {
+    // console.log(item);
+    const listItem = $("<li>").addClass("list-group-item");
+    
+    // Format the quantity and unit
+    const quantityText = `${item.quantity} ${item.baseUnit}${item.quantity !== 1 && item.baseUnit.toLowerCase() !== 'unit' ? 's' : ''}`;
+    
+    listItem.html(`<span class="ingredient-quantity">${quantityText}</span> of <span class="ingredient-name">${item.ingredient_name}</span> `);
+    // console.log(listItem);
+
+    listContainer.append(listItem);
+    $('#bordered_no-gutter_collapseTwo').collapse('show');
+    $('[data-bs-target="#bordered_no-gutter_collapseTwo"]').removeClass('collapsed');
+  });
+}
+
+
 /**
  * Build a shopping list, rounding up ‘each’-type items to whole numbers
  */
 function calculateShoppingList(ingredients, mealMultipliers) {
   const shoppingList = {};
+
+// console.log(ingredients);
+// console.log(mealMultipliers);
 
   // 1) Sum adjusted quantities, normalizing ingredient keys
   ingredients.forEach(item => {

@@ -81,8 +81,9 @@
         });
 
         calendar.render();
-        loadExternalMeals();
+        // loadExternalMeals();
         loadExistingEvents(calendar);
+        initializeDraggables();
     }
 
     // Transform event data for display
@@ -91,6 +92,12 @@
 
         const mealType = eventData.extendedProps.mealType;
         let mealColor;
+console.log('mealType');
+console.log(mealType);
+// this is evaluating a text string rather than the numerical value
+//  i need to have a global var wit the color codes for the mealTypeColors
+//  this is causing the returned events from gcal to not hvae the correct colors.
+//  also need to update the gcal to store the MealTypeID rather than MealType for consistency
 
         switch (mealType.toLowerCase()) {
             case "breakfast": mealColor = "#5C3799"; break;
@@ -98,7 +105,7 @@
             case "dinner": mealColor = "#2953E8"; break;
             case "dessert": mealColor = "#ff887c"; break;
             case "sss": mealColor = "#6610f2"; break;
-            default: mealColor = "#e1e1e1";
+            default: mealColor = "red";
         }
 
         eventData.color = mealColor;
@@ -107,6 +114,8 @@
 
     // Handle new event drop
     function handleEventReceive(info) {
+        console.log('info');
+        console.log(info);
         const { mealId, servings, mealType } = info.event.extendedProps;
         
         if (!mealId || !servings || !mealType) {
@@ -197,73 +206,138 @@
     function loadExternalMeals() {
     let attempts = 0; 
 
-      function makeAjaxRequest() {
-          $.ajax({
-              url: "api/mealplanner.cfc?method=getMeals",
-              method: "GET",
-              dataType: "json",
-              success: meals => {
-                  const mealTypes = ["breakfast", "lunch", "dinner", "dessert"];
+      // function makeAjaxRequest() {
+      //     $.ajax({
+      //         url: "api/mealplanner.cfc?method=getMeals",
+      //         method: "GET",
+      //         dataType: "json",
+      //         success: meals => {
+      //             const mealTypes = ["breakfast", "lunch", "dinner", "dessert"];
                   
-                  mealTypes.forEach(type => {
-                      const filtered = meals.filter(meal => 
-                          meal.mealTypeID.toLowerCase() === type
-                      );
+      //             mealTypes.forEach(type => {
+      //                 const filtered = meals.filter(meal => 
+      //                     meal.mealTypeID.toLowerCase() === type
+      //                 );
                       
-                      const elements = filtered.map(meal => 
-                          $(`<div class="external-events-${type}">`).append(`
-                              <div 
-                                  data-meal-id="${meal.id}"
-                                  data-mealtype="${meal.mealTypeID}"
-                                  data-servings="${meal.servings}"
-                                  data-meal-color="${meal.typeColor}"
-                                  class="external-event fc-event"
-                                  style="background-color: ${meal.typeColor}; color: white;"
-                              >
-                                  <i class="fa fa-move"></i>${meal.title}
-                              </div>
-                          `)
-                      );
+      //                 const elements = filtered.map(meal => 
+      //                     $(`<div class="external-events-${type}">`).append(`
+      //                         <div 
+      //                             data-meal-id="${meal.id}"
+      //                             data-mealtype="${meal.mealTypeID}"
+      //                             data-servings="${meal.servings}"
+      //                             data-meal-color="${meal.typeColor}"
+      //                             class="external-event fc-event"
+      //                             style="background-color: ${meal.typeColor}; color: white;"
+      //                         >
+      //                             <i class="fa fa-move"></i>${meal.title}
+      //                         </div>
+      //                     `)
+      //                 );
                       
-                      $(`#external-events-${type}`).empty().append(elements);
-                      initializeDraggable(type);
-                  });
+      //                 $(`#external-events-${type}`).empty().append(elements);
+      //                 initializeDraggable(type);
+      //             });
+      //         },
+      //         error: (xhr, status, err) => {
+      //       if (attempts === 0) {
+      //         attempts++; 
+      //         console.warn("Ajax call failed on first attempt, retrying...", err); 
+      //         makeAjaxRequest(); // Retry once
+      //       } else {
+      //         console.error("Ajax call failed after retry:", err);
+      //       }
+      //      }
+      //   });
+      // } 
+        function makeAjaxRequest() {
+          return new Promise((resolve, reject) => {
+            let attempts = 0;
+            
+            $.ajax({
+              url: "/api/mealplanner.cfc",
+              method: "GET",
+              data: {
+                method: "getMeals"
               },
-              error: (xhr, status, err) => {
-            if (attempts === 0) {
-              attempts++; 
-              console.warn("Ajax call failed on first attempt, retrying...", err); 
-              makeAjaxRequest(); // Retry once
-            } else {
-              console.error("Ajax call failed after retry:", err);
-            }
-           }
-        });
-      } 
+              dataType: "json",
+              success: function(response) {
+                console.log(response.meals);
+                
+                // Access the separate datasets
+                const meals = response.meals;
+                // const mealTypes = response.mealTypes;
+                
+                // Use the data as needed
+                populateMealTypesList(response);
+                // populateIngredientsList(meals);
+                
+                resolve(response);
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                if (attempts === 0) {
+                  attempts++;
+                  console.warn("Ajax call failed on first attempt, retrying...", errorThrown);
+                  makeAjaxRequest().then(resolve).catch(reject);
+                } else {
+                  reject(errorThrown);
+                }
+              }
+            });
+          });
+        }
       makeAjaxRequest();
    }
 
+   function populateMealTypesList(response) {
+        console.log('populateMealTypesList')
+        console.log(response.meals)
+        const elements = filtered.map(meal => 
+              $(`<div class="external-events-${type}">`).append(`
+                  <div 
+                      data-meal-mealid="${meal.mealID}"
+                      data-mealtype="${meal.mealTypeID}"
+                      data-servings="${meal.servings}"
+                      data-meal-color="${meal.typeColor}"
+                      class="external-event fc-event"
+                      style="background-color: ${meal.mealTypeColor}; color: white;"
+                  >
+                      <i class="fa fa-move"></i>${meal.title}
+                  </div>
+              `)
+          );
+      
+        $(`#external-events-${type}`).empty().append(elements);
+        // initializeDraggable(type);
+   }
+
+   // function populateIngredientsList(meals) {
+   //  console.log('populateIngredientsList')
+   //  console.log(meals)
+   // }
+
     // Initialize draggable elements
-    function initializeDraggable(mealType) {
-        new FullCalendar.Draggable(
-            document.getElementById(`external-events-${mealType}`),
-            {
-                itemSelector: ".fc-event",
-                eventData: eventEl => {
-                    const $el = $(eventEl);
-                    return {
-                        title: $el.text().trim(),
-                        color: $el.data("meal-color"),
-                        extendedProps: {
-                            mealId: $el.data("meal-id"),
-                            mealType: $el.data("mealtype"),
-                            servings: $el.data("servings")
-                        }
-                    };
-                }
+    function initializeDraggables() {
+    // Get all containers that might contain draggable events
+    const containers = document.querySelectorAll('.accordion__body--text');
+    
+    containers.forEach(container => {
+        new FullCalendar.Draggable(container, {
+            itemSelector: ".external-event.fc-event",
+            eventData: eventEl => {
+                const $el = $(eventEl);
+                return {
+                    title: $el.text().trim(),
+                    color: $el.data("meal-color"),
+                    extendedProps: {
+                        mealId: $el.data("meal-mealid"),
+                        mealType: $el.data("mealtypeid"),
+                        servings: $el.data("servings")
+                    }
+                };
             }
-        );
-    }
+        });
+    });
+}
 
     // Load existing events from calendar
     function loadExistingEvents(calendarInstance) {

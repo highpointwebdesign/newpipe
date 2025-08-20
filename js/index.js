@@ -371,19 +371,6 @@ console.log(ingredientsList);
           });
         });
 
-          var colorMapping = {
-            "1": "#5C3799",
-            "2": "#7ae7bf",
-            "3": "#fdadad",
-            "4": "#ff887c",
-            "5": "#fbd75b",
-            "6": "#ffb878",
-            "7": "#46d6db",
-            "8": "#e1e1e1",
-            "9": "#2953E8",
-            "10":"#1ab5ac",
-            "11":"#dc2127"
-          };
       // Load meals from the server and update the dashboard.
       function loadMeals() {
         let attempts = 0; // track the number of attempts
@@ -398,10 +385,9 @@ console.log(ingredientsList);
 
 
               $("#mealCards").empty();
-              $.each(data, function (index, meal) {
-             
-              var customColor = "#dc2127"; // Example custom color
-              var calendarColorId = colorMapping[customColor] || "1"
+              $.each(data.meals, function (index, meal) {
+              
+              var customColor = meal.mealTypeColor
 
               // build the ingredients list first
               var listGroup = '<div class="list-group">';
@@ -421,7 +407,7 @@ console.log(ingredientsList);
                 '<div class="col">' +
                   '<div class="card">' +
                     '<div class="card-header">' +
-                      '<h5 class="card-title"><i class="fa-regular" style="border-radius: 50%;background-color:#ff887c;display: inline-block;width: 10px;height: 10px;margin-right: 5px;position: relative;top:-1px;background-color:' + meal.typeColor + '"></i>' + meal.title + '</h5>' +
+                      '<h5 class="card-title"><i class="fa-regular" style="border-radius: 50%;background-color:#ff887c;display: inline-block;width: 10px;height: 10px;margin-right: 5px;position: relative;top:-1px;background-color:' + meal.mealTypeColor + '"></i>' + meal.title + '</h5>' +
                     '</div>' +
                     '<div class="card-body">' +
                       '<div id="mealCard_' + meal.mealID + '" class="accordion accordion-no-gutter">' +
