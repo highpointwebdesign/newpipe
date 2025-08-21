@@ -18,10 +18,10 @@
 		<!--- add --->
 			<cfscript>	
 		        // Insert each ingredient.
-		            ingredient_quantityArray = listToArray(form.ingredient_quantity);
+		            quantityIDArray = listToArray(form.quantityID);
 		            ingredientIDArray = listToArray(form.ingredientID);
 		            uomArray = listToArray(form.uom);
-        
+
 			        transaction {
 			            // Update the meal record.
 			            queryExecute(
@@ -47,11 +47,11 @@
 						for (i = 1; i <= arrayLen(ingredientIDArray); i++) {
 						 try {
 						    queryExecute(
-						        "INSERT INTO meal_ingredients (mealID, ingredientID, quantity, unit) VALUES (:mealId, :ingredientID, :quantity, :unit)",
+						        "INSERT INTO meal_ingredients (mealID, ingredientID, quantityID, unit) VALUES (:mealId, :ingredientID, :quantityID, :unit) WHERE ingredientID > 0",
 						        {
 						            mealId      : form.mealId,
 						            ingredientID: ingredientIDArray[i],
-						            quantity    : ingredient_quantityArray[i],
+						            quantityID    : quantityIDArray[i],
 						            unit        : uomArray[i]
 						        },
 						        { datasource = 'sg' }
@@ -59,13 +59,17 @@
 							} catch (any e) {
 							    // Log the error but continue with the next iteration
 							    writeLog(file="mealplanner", text="Error inserting ingredient #i#: #e.message#");
+							    writeDump(e);
+							    writeDump(e.message);
+							    writeDump(form);
+							    abort;
 							}
 						}
 			        }
 			</cfscript>
 			<cfset result.msg ="Ingredient added...">
 			<cfif form.action eq 'addIngredient'>
-				<cflocation url="meal_crud.cfm?id=#form.mealID#&status=1&action=#form.action#&status=#result.status#&msg=#result.msg#" addtoken="false">
+				<cflocation url="meal_crud.cfm?id=#form.mealID#&status=1&action=#form.action#&status=#result.status#&msg=#result.msg###bottom" addtoken="false">
 			<cfelse>
 				<cflocation url="/?status=1&action=#form.action#&status=#result.status#&msg=#result.msg#" addtoken="false">
 			</cfif>
@@ -105,8 +109,8 @@
 
 <!--- <cflocation url="meal_crud.cfm?id=#form.id#&status=1&action=#form.action#&status=#result.status#&msg=#result.msg#" addtoken="false"> --->
 <cfoutput>
-	<a href="meal_crud.cfm?id=#form.mealID#&status=1&action=#form.action#&status=#result.status#&msg=#result.msg#">continue.</a>
-	<cflocation url="meal_crud.cfm?id=#form.mealID#&status=1&action=#form.action#&status=#result.status#&msg=#result.msg#" addtoken="false">
+	<a href="meal_crud.cfm?id=#form.mealID#&status=1&action=#form.action#&status=#result.status#&msg=#result.msg###bottom">continue.</a>
+	<cflocation url="meal_crud.cfm?id=#form.mealID#&status=1&action=#form.action#&status=#result.status#&msg=#result.msg###bottom" addtoken="false">
 <cfif structKeyExists(form, 'action') && form.action eq 'savemeal'>
 <br/>
 <a href="/?status=1&action=#form.action#&status=#result.status#&msg=#result.msg#">save meal and done</a>

@@ -51,16 +51,19 @@ component {
                     mi.miID,
                     mi.mealID,
                     mi.ingredientID,
-                    mi.quantity,
                     mi.unit,
                     r.ingredient_name,
                     uom.unitName,
                     uom.baseUnit,
-                    uom.unitType
+                    uom.unitType,
+                    mi.quantityID,
+                    q.textValue as quantity,
+                    q.optionValue
                 From
                     meal_ingredients mi Left Join
                     raw_ingredients r On r.ingredientID = mi.ingredientID Left Join
-                    measurementunits uom On uom.unitID = mi.unit
+                    measurementunits uom On uom.unitID = mi.unit Left Join
+                    quantity_options q On q.quantityID = mi.quantityID
                 Where
                     mi.mealID = :mealId
                 Order By
@@ -305,21 +308,26 @@ component {
         var mealsQ = queryExecute(
             "Select
                 m.mealID As mealID1,
-                mi.miID,
-                mi.ingredientID,
-                mi.quantity,
-                mi.unit,
-                r.ingredient_name,
-                uom.unitName,
-                uom.baseUnit,
-                uom.unitType,
                 m.title,
                 m.servings,
                 m.mealTypeID,
-                mt.mealTypeName,
-                mt.mealTypeColor,
                 m.fav,
-                m.details
+                m.details,
+
+                mi.miID,
+                mi.ingredientID,
+                -- mi.quantity,
+                mi.unit,
+                mi.quantityID,
+                
+                r.ingredient_name,
+                
+                uom.unitName,
+                uom.baseUnit,
+                uom.unitType,
+                
+                mt.mealTypeName,
+                mt.mealTypeColor
             From
                 meal_ingredients mi Left Join
                 raw_ingredients r On r.ingredientID = mi.ingredientID Left Join
@@ -411,28 +419,33 @@ component {
         //     ORDER BY ingredient_name ASC
         // ";
         var sql = "
-            Select
-                r.ingredient_name,
-                Sum(m.quantity) As quantity,
-                m.unit,
-                m.ingredientID,
-                u.unitName,
-                u.baseUnit,
-                u.unitType
-            From
-                meal_ingredients m Left Join
-                raw_ingredients r On r.ingredientID = m.ingredientID Left Join
-                measurementunits u On u.unitID = m.unit
-            Where
-                m.mealID In (:mealIds)
-            Group By
+            SELECT
                 r.ingredient_name,
                 m.unit,
                 m.ingredientID,
                 u.unitName,
                 u.baseUnit,
+                u.unitType,
+                SUM(q1.optionValue) AS totalQuantityDecimal,
+                (SELECT qo.textValue 
+                 FROM quantity_options qo 
+                 WHERE qo.optionValue = ROUND(SUM(q1.optionValue), 3) 
+                 LIMIT 1) AS totalQuantityFraction
+            FROM
+                meal_ingredients m 
+                LEFT JOIN raw_ingredients r ON r.ingredientID = m.ingredientID 
+                LEFT JOIN measurementunits u ON u.unitID = m.unit 
+                LEFT JOIN quantity_options q1 ON q1.quantityID = m.quantityID
+            WHERE
+                m.mealID IN (:mealIds) 
+            GROUP BY
+                r.ingredient_name,
+                m.unit,
+                m.ingredientID,
+                u.unitName,
+                u.baseUnit,
                 u.unitType
-            Order By
+            ORDER BY
                 r.ingredient_name";
         
         var ingredientQry = queryExecute(
@@ -443,7 +456,8 @@ component {
 
         for (var i = 1; i <= ingredientQry.recordCount; i++) {
             var ingredientData = {
-                quantity        : ingredientQry.quantity[i],
+                // quantity        : ingredientQry.quantity[i],
+                totalQuantityFraction        : ingredientQry.totalQuantityFraction[i],
                 baseUnit        : ingredientQry.baseUnit[i],
                 baseUnit        : ingredientQry.baseUnit[i],
                 ingredient_name        : ingredientQry.ingredient_name[i]

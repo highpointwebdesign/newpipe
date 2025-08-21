@@ -296,7 +296,7 @@ function populateIngredientsList(ingredients) {
     const listItem = $("<li>").addClass("list-group-item");
     
     // Format the quantity and unit
-    const quantityText = `${item.quantity} ${item.baseUnit}${item.quantity !== 1 && item.baseUnit.toLowerCase() !== 'unit' ? 's' : ''}`;
+    const quantityText = `${item.totalQuantityFraction} ${item.baseUnit}${item.quantity !== 1 && item.baseUnit.toLowerCase() !== 'unit' ? 's' : ''}`;
     
     listItem.html(`<span class="ingredient-quantity">${quantityText}</span> of <span class="ingredient-name">${item.ingredient_name}</span> `);
     // console.log(listItem);

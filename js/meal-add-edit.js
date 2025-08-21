@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+      $('#ingredientID').focus();
       // Load meals when the page loads.
       // loadMeals();
       // $('#details').summernote();
