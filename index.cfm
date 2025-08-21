@@ -17,7 +17,7 @@
 
 
   <style>
-    #mealType {
+    #mealTypeID {
       line-height:3.0 !important
     }
   </style>
@@ -44,24 +44,25 @@
   <div class="content-body">
 
     <div class="row">
-      <div class="col-sm-2">
-        <div class="position-sticky" style="top: 2rem;">
+      <div class="col-sm-1">
+        <!--- <div class="position-sticky" style="top: 2rem;">
           <div class="p-4">
             <h3 class="mb-4 border-bottom">
               Actions
             </h3>            
               <div class="d-grid gap-2">
               <!-- <li><a href="#">April 2020</a></li> -->
-                <a class="btn btn-primary" href="#" id="menu-add">Toggle Meal Form</a>
+                <a class="btn btn-primary" href="#" id="menu-add">Add Meal</a>
                 <!-- <a class="btn btn-primary" href="#" id="menu-shopping">Shopping List</a> -->
-                <a class="btn btn-secondary" href="#" id="menu-importFromTrello">Update Database</a>
+                <!--- <a class="btn btn-secondary" href="#" id="menu-importFromTrello">Update Database</a> --->
               </div>
           </div>        
-        </div>
+        </div> --->
       </div>
       <div class="col-sm-10">
         <h3 class="mb-4 border-bottom" style="padding-top: 20px;">
           Meal Cards
+          <div class="pull-right"><a class="btn btn-primary" href="#" id="menu-add">Add Meal</a></div>
         </h3>            
         <!-- main content here -->
 
@@ -86,8 +87,8 @@
                         <input type="number" class="form-control" id="servings" value="4" step="2" required/>
                       </div>
                       <div class="col-md-6">
-                        <label for="mealType" class="form-label">Meal Type</label>
-                        <select id="mealType" class="form-select" required>
+                        <label for="mealTypeID" class="form-label">Meal Type</label>
+                        <select id="mealTypeID" class="form-select" required>
                           <option></option> <!-- Empty option for placeholder -->
                         </select>
                       </div>
@@ -100,7 +101,7 @@
                       </div>
                     </div>
                   </div>
-                  <div id="ingredientsContainer">
+                  <!--- <div id="ingredientsContainer">
                     <!-- <label class="form-label">Ingredients</label> -->
                     <label class="form-label">Ingredients</label>
                     <div class="ingredient-row row mb-2">
@@ -130,13 +131,13 @@
                       <button type="button" id="addIngredientBtn" class="btn btn-rounded btn-secondary"><span class="btn-icon-left text-secondary"><i class="fa fa-plus color-secondary"></i>
                                       </span>Add Ingredient</button>                    
                     </div>
-                  </div>
+                  </div> --->
               </div>
               <div class="card-footer">
                 <!-- <a href="javascript:void(0);" class="card-link d-inline btn btn-primary">Save</a> -->
                 <div class="toolbar toolbar-bottom" role="toolbar" style="text-align: right;">
                   <button id="cancelMeal" class="btn btn-light" type="button">Cancel</button>
-                  <button type="submit" class="btn btn-primary">Save Meal</button>
+                  <button type="submit" class="btn btn-primary">Next (Add Ingredients)</button>
                 </div>
               </div>
             </div>

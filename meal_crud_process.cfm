@@ -105,8 +105,8 @@
 
 <!--- <cflocation url="meal_crud.cfm?id=#form.id#&status=1&action=#form.action#&status=#result.status#&msg=#result.msg#" addtoken="false"> --->
 <cfoutput>
-<a href="meal_crud.cfm?id=#form.mealID#&status=1&action=#form.action#&status=#result.status#&msg=#result.msg#">continue.</a>
-
+	<a href="meal_crud.cfm?id=#form.mealID#&status=1&action=#form.action#&status=#result.status#&msg=#result.msg#">continue.</a>
+	<cflocation url="meal_crud.cfm?id=#form.mealID#&status=1&action=#form.action#&status=#result.status#&msg=#result.msg#" addtoken="false">
 <cfif structKeyExists(form, 'action') && form.action eq 'savemeal'>
 <br/>
 <a href="/?status=1&action=#form.action#&status=#result.status#&msg=#result.msg#">save meal and done</a>

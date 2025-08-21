@@ -162,7 +162,7 @@ $(document).ready(function () {
           success: function(data) {
             // Cache the data
             unitsOfMeasurement = data;
-            console.log('Units of measurement loaded:', unitsOfMeasurement);
+            // console.log('Units of measurement loaded:', unitsOfMeasurement);
             populateUoMDropdown()
           },
           error: function(xhr, status, error) {
@@ -177,15 +177,15 @@ $(document).ready(function () {
           success: function(data) {
             // Cache the data
             ingredientsList = data;
-            console.log('ingredientsList loaded:', ingredientsList);
+            // console.log('ingredientsList loaded:', ingredientsList);
             populateIngredientsDropdown();
           },
           error: function(xhr, status, error) {
             console.error('Error retrieving ingredientsList:', error);
           }
         });
-console.log('ingredientsList');
-console.log(ingredientsList);
+// console.log('ingredientsList');
+// console.log(ingredientsList);
 
 
       // // Add a new ingredient input row.
@@ -292,7 +292,7 @@ console.log(ingredientsList);
           var mealId = $("#mealId").val();
           var title = $("#mealTitle").val();
           var servings = $("#servings").val();
-          var mealType = $("#mealType").val();
+          var mealTypeID = $("#mealTypeID").val();
           var details = $("#details").val();
           var ingredients = [];
         
@@ -319,7 +319,7 @@ console.log(ingredientsList);
             details: details,
             title: title,
             servings: servings,
-            mealType: mealType,
+            mealTypeID: mealTypeID,
             ingredients: JSON.stringify(ingredients)
           };
           
@@ -334,33 +334,9 @@ console.log(ingredientsList);
             dataType: "json",
             success: function (res) {
               if (res.success) {
-                var msg = mealId && mealId.trim() !== "" ? "Meal Updated" : "Meal Added";
-                Swal.fire(msg, "Your meal has been saved.", "success");
+                console.log(res);
                 
-                // Reset the form.
-                $("#addMealForm")[0].reset();
-                // Recreate one blank ingredient row.
-                $("#ingredientsContainer").empty().append('<label class="form-label">Ingredients</label>' +
-                  '<div class="ingredient-row row mb-2">' +
-                    '<div class="col-md-4">' +
-                      '<input type="text" class="form-control ingredient-name" placeholder="Ingredient Name" required />' +
-                    '</div>' +
-                    '<div class="col-md-3">' +
-                      '<input type="number" step="0.25" class="form-control ingredient-quantity" placeholder="Quantity" required />' +
-                    '</div>' +
-                    '<div class="col-md-3">' +
-                      '<input type="text" class="form-control ingredient-unit" placeholder="Unit (e.g., Cup, tsp)" required />' +
-                    '</div>' +
-                    '<div class="col-md-2">' +
-                      '<button type="button" class="btn btn-danger btn-remove-ingredient">Remove</button>' +
-                    '</div>' +
-                  '</div>');
-                  
-                // Clear the hidden mealId field and reset the button label.
-                $("#mealId").val("");
-                $("#addMealForm button[type='submit']").text("Save Meal");
-                $("#addMealSection").collapse("hide");
-                loadMeals();
+                window.location.replace("meal_crud.cfm?id=" + res.mealId);
               } else {
                 Swal.fire("Error", "Could not save meal.", "error");
               }
@@ -467,9 +443,9 @@ console.log(ingredientsList);
 
       // Initialize Select2 without AJAX (for short list)
       $(document).ready(function() {
-        $('#mealType').select2({
+        $('#mealTypeID').select2({
           placeholder: 'Select Meal Type',
-          dropdownParent:$('#mealType').parent(),
+          dropdownParent:$('#mealTypeID').parent(),
           allowClear: false,
           templateResult: formatMealType
         });
@@ -480,15 +456,15 @@ console.log(ingredientsList);
           dataType: 'json',
           success: function(data) {
             // Clear existing options
-            $('#mealType').empty().append('<option></option>');
+            $('#mealTypeID').empty().append('<option></option>');
             
             // Add new options
             $.each(data, function(i, item) {
-              $('#mealType').append(new Option(item.text, item.id, false, false));
+              $('#mealTypeID').append(new Option(item.text, item.id, false, false));
             });
             
             // Trigger change to refresh Select2
-            $('#mealType').trigger('change');
+            $('#mealTypeID').trigger('change');
           }
         });
       });
@@ -498,7 +474,7 @@ console.log(ingredientsList);
         if (!mealType.id) return mealType.text; // Skip placeholder
         
         // Find the original option data
-        var originalOption = $('#mealType option[value="' + mealType.id + '"]');
+        var originalOption = $('#mealTypeID option[value="' + mealType.id + '"]');
         var data = $(originalOption).data();
         
         // Create styled option

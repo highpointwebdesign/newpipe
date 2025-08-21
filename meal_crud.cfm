@@ -84,7 +84,7 @@ Order By
   <div class="content-body">
 
     <div class="row">
-      <div class="col-sm-2">
+      <div class="col-sm-1">
         <!--- <div class="position-sticky" style="top: 2rem;">
           <div class="p-4">
             <h3 class="mb-4 border-bottom">
@@ -99,7 +99,7 @@ Order By
           </div>        
         </div> --->
       </div>
-      <div class="col-sm-9">
+      <div class="col-sm-10">
         <h3 class="mb-4 border-bottom" style="padding-top: 20px;">
           <cfif structKeyExists(url, 'id')>
           	Edit
@@ -152,66 +152,71 @@ Order By
                   </div>
 
                   <div id="ingredientsContainer">
+                    
                     <!-- <label class="form-label">Ingredients</label> -->
                     <label class="form-label">Ingredients</label>
+                     <!--- <cfif structKeyExists(url, 'action')> --->
+                    <div class="ingredient-row row mb-2">
+                        <!--- quantity --->
+                        <div class="col-md-2">
+                          <cfoutput><input type="number" step="0.25" class="form-control" name="ingredient_quantity" placeholder="Enter Quantity"  value="" /></cfoutput>
+                        </div>
+
+                        <!--- unit of measurement --->
+                        <div class="col-md-3">
+                          <select class="form-control"  name="uom">
+                            <option value="0">Select Unit (e.g., Cup, tsp)</option>
+                            <cfoutput query="UoM">
+                              <option value="#UoM.unitID#">#UoM.unitName# (#UoM.baseUnit#/#UoM.unitType#)</option>
+                            </cfoutput>
+                          </select>
+                        </div>
+                        
+                        <!--- Ingredient Name --->
+                        <div class="col-md-5">                        
+                          <select class="form-control" placeholder="Ingredient Name"  name="ingredientID">
+                            <option value="0">Select Ingredient Name</option> <!-- Empty option for placeholder -->
+                            <cfoutput query="ingredients">
+                              <option value="#ingredients.ingredientID#">#ingredients.ingredient_name#</option>
+                            </cfoutput>                           
+                          </select>
+                        </div>
+                        <div class="col-md-2">
+                          <button type="submit" name="action" value="addIngredient" class="btn btn-secondary btn-add-ingredient">Add</button>
+                        </div>
+                      </div>
+                  <!--- </cfif> --->
+
                     <cfoutput query="getMealCard">
-	                    <div class="ingredient-row row mb-2">
-	                      <div class="col-md-2">
-	                        <input type="number" step="0.25" class="form-control ingredient-quantity" name="ingredient_quantity" placeholder="Enter Quantity" required value="#getMealCard.quantity#" />
-	                      </div>
-	                      <div class="col-md-3">
-	                        <select class="form-control" required name="uom">
-	                          <option value="0">Select Unit (e.g., Cup, tsp)</option>
-	                          <cfloop query="UoM">
-	                          	<option value="#UoM.unitID#" <cfif uom.unitID eq getMealCard.unit>selected</cfif> >#UoM.unitName# (#UoM.baseUnit#/#UoM.unitType#)</option>
-	                          </cfloop>
-	                        </select>
-	                      </div>
-	                      <div class="col-md-5">                        
-	                        <select class="form-control" placeholder="Ingredient Name" required name="ingredientID">
-	                          <option value="0">Select Ingredient Name</option> <!-- Empty option for placeholder -->
-	                          <cfloop query="ingredients">
-	                          	<option value="#ingredients.ingredientID#" <cfif ingredients.ingredientID eq getMealCard.ingredientID>selected</cfif>>#ingredients.ingredient_name#</option>
-	                          </cfloop>                           
-	                        </select>
-	                      </div>
-	                      <div class="col-md-2">
-	                        <a href="meal_crud_process.cfm?id=#url.id#&action=removeIngredient&miID=#getMealCard.miID#" class="btn btn-danger">Remove</a>
-	                      </div>
-	                    </div>
+                      <cfif len(getMealCard.quantity)> 
+  	                    <div class="ingredient-row row mb-2">
+  	                      <div class="col-md-2">
+  	                        <input type="number" step="0.25" class="form-control ingredient-quantity" name="ingredient_quantity" placeholder="Enter Quantity" required value="#getMealCard.quantity#" />
+  	                      </div>
+  	                      <div class="col-md-3">
+  	                        <select class="form-control" required name="uom">
+  	                          <option value="0">Select Unit (e.g., Cup, tsp)</option>
+  	                          <cfloop query="UoM">
+  	                          	<option value="#UoM.unitID#" <cfif uom.unitID eq getMealCard.unit>selected</cfif> >#UoM.unitName# (#UoM.baseUnit#/#UoM.unitType#)</option>
+  	                          </cfloop>
+  	                        </select>
+  	                      </div>
+  	                      <div class="col-md-5">                        
+  	                        <select class="form-control" placeholder="Ingredient Name" required name="ingredientID">
+  	                          <option value="0">Select Ingredient Name</option> <!-- Empty option for placeholder -->
+  	                          <cfloop query="ingredients">
+  	                          	<option value="#ingredients.ingredientID#" <cfif ingredients.ingredientID eq getMealCard.ingredientID>selected</cfif>>#ingredients.ingredient_name#</option>
+  	                          </cfloop>                           
+  	                        </select>
+  	                      </div>
+  	                      <div class="col-md-2">
+  	                        <a href="meal_crud_process.cfm?id=#url.id#&action=removeIngredient&miID=#getMealCard.miID#" class="btn btn-danger">Remove</a>
+  	                      </div>
+  	                    </div>
+                      </cfif>
 	                </cfoutput>
 
-	                <!--- <cfif structKeyExists(url, 'action')> --->
-	                	<div class="ingredient-row row mb-2">
-	                      <!--- quantity --->
-	                      <div class="col-md-2">
-	                        <cfoutput><input type="number" step="0.25" class="form-control" name="ingredient_quantity" placeholder="Enter Quantity"  value="" /></cfoutput>
-	                      </div>
-
-	                      <!--- unit of measurement --->
-	                      <div class="col-md-3">
-	                        <select class="form-control"  name="uom">
-	                          <option value="0">Select Unit (e.g., Cup, tsp)</option>
-	                          <cfoutput query="UoM">
-	                          	<option value="#UoM.unitID#">#UoM.unitName# (#UoM.baseUnit#/#UoM.unitType#)</option>
-	                          </cfoutput>
-	                        </select>
-	                      </div>
-	                      
-	                      <!--- Ingredient Name --->
-	                      <div class="col-md-5">                        
-	                        <select class="form-control" placeholder="Ingredient Name"  name="ingredientID">
-	                          <option value="0">Select Ingredient Name</option> <!-- Empty option for placeholder -->
-	                          <cfoutput query="ingredients">
-	                          	<option value="#ingredients.ingredientID#">#ingredients.ingredient_name#</option>
-	                          </cfoutput>                           
-	                        </select>
-	                      </div>
-	                      <div class="col-md-2">
-	                        <button type="submit" name="action" value="addIngredient" class="btn btn-secondary btn-add-ingredient">Add</button>
-	                      </div>
-	                    </div>
-	                <!--- </cfif> --->
+	               
 
                   </div>
                   

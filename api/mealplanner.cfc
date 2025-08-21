@@ -124,12 +124,12 @@ component {
         transaction {
             // Insert the meal and capture the generated key.
             var insertMeal = queryExecute(
-                "INSERT INTO meals (title, servings, mealType, details) VALUES (:title, :servings, :mealType, :details)",
+                "INSERT INTO meals (title, servings, mealTypeID, details) VALUES (:title, :servings, :mealTypeID, :details)",
                 { 
                     title = arguments.title, 
                     servings = arguments.servings,
                     details = arguments.details,
-                    mealType = arguments.mealType 
+                    mealTypeID = arguments.mealTypeID 
                 },
                 { datasource = variables.datasource}
             );
@@ -142,19 +142,19 @@ component {
                 );
             mealId = qLastId.id[1];
             
-            // Insert each ingredient.
-            for (var ingredient in ingredientsArray) {
-                queryExecute(
-                    "INSERT INTO meal_ingredients (mealID, ingredient_name, quantity, unit) VALUES (:mealId, :ingName, :quantity, :unit)",
-                    {
-                        mealId   : mealId,
-                        ingName  : ingredient.ingredientName,
-                        quantity : ingredient.quantity,
-                        unit     : ingredient.unit
-                    },
-                    { datasource = variables.datasource }
-                );
-            }
+            // // Insert each ingredient.
+            // for (var ingredient in ingredientsArray) {
+            //     queryExecute(
+            //         "INSERT INTO meal_ingredients (mealID, ingredient_name, quantity, unit) VALUES (:mealId, :ingName, :quantity, :unit)",
+            //         {
+            //             mealId   : mealId,
+            //             ingName  : ingredient.ingredientName,
+            //             quantity : ingredient.quantity,
+            //             unit     : ingredient.unit
+            //         },
+            //         { datasource = variables.datasource }
+            //     );
+            // }
         }
         return { success = true, mealId = mealId };
     }
@@ -165,7 +165,7 @@ component {
      */
     remote any function archiveMeal(required numeric mealId) {
         queryExecute(
-            "UPDATE meals SET isDeleted = 1 WHERE id = :mealId",
+            "UPDATE meals SET isDeleted = 1 WHERE mealID = :mealId",
             { mealId = arguments.mealId },
             { datasource = variables.datasource }
         );
@@ -1219,7 +1219,7 @@ component {
             arrayAppend(results, {
                 mealTypeID = row.mealTypeID
                 , mealTypeName = row.mealTypeName
-                , typeColor = row.typecolor                
+                , mealTypeColor = row.mealTypeColor                
             });
         }
 

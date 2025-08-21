@@ -95,11 +95,10 @@ Order By
                                             data-meal-mealid="#mealTypes.mealID#"
                                             data-mealtypeid="#mealTypes.mealTypeID#"
                                             data-servings="#mealTypes.servings#"
-                                            data-meal-color="#mealTypes.mealTypeColor#"
+                                            data-mealtypecolor="#mealTypes.mealTypeColor#"
                                             class="external-event fc-event"
-                                            style="background-color: #mealTypes.mealTypeColor#; color: white;"
-                                        >
-                                            <i class="fa fa-move"></i> #mealTypes.title#
+                                            style="background-color: #mealTypes.mealTypeColor#; color: white; padding-left:5px;"
+                                        ><i class="fa fa-move"></i>#mealTypes.title#  <small>(Srv: #mealTypes.servings#)</small> - #mealTypes.mealTypeColor#
                                         </div>
                                       </cfoutput>
                                     </div>
@@ -139,6 +138,7 @@ Order By
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   
-  <script src="js/mealplanner.js"></script>
+  <!--- <script src="js/mealplanner.js"></script> --->
+  <script src="js/calendar.js"></script>
 </body>
 </html>
