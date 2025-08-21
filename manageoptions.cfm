@@ -68,13 +68,13 @@
             <!-- Navigation Tabs -->
             <ul class="nav nav-tabs" id="optionsTabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="units-tab" data-bs-toggle="tab" data-bs-target="#units" type="button" role="tab">
-						Measurement Units
+                    <button class="nav-link active" id="meals-tab" data-bs-toggle="tab" data-bs-target="#meals" type="button" role="tab">
+						Meal Types
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="meals-tab" data-bs-toggle="tab" data-bs-target="#meals" type="button" role="tab">
-						Meal Types
+                    <button class="nav-link" id="units-tab" data-bs-toggle="tab" data-bs-target="#units" type="button" role="tab">
+						Measurement Units
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
@@ -97,7 +97,7 @@
             <!-- Tab Content -->
             <div class="tab-content" id="optionsTabContent">
                 <!-- Measurement Units Tab -->
-                <div class="tab-pane fade show active" id="units" role="tabpanel">
+                <div class="tab-pane fade " id="units" role="tabpanel">
                     <div class="d-flex justify-content-between align-items-center my-3">
                         <h3>Measurement Units</h3>
                         <button class="btn btn-primary" id="addUnitBtn">
@@ -121,7 +121,7 @@
                 </div>
                 
                 <!-- Meal Types Tab -->
-                <div class="tab-pane fade" id="meals" role="tabpanel">
+                <div class="tab-pane fade show active" id="meals" role="tabpanel">
                     <div class="d-flex justify-content-between align-items-center my-3">
                         <h3>Meal Types</h3>
                         <button class="btn btn-primary" id="addMealBtn">
@@ -407,19 +407,19 @@
                     dataSrc: ''
                 },
                 columns: [
-                    { data: 'id' },
-                    { data: 'unit_name' },
-                    { data: 'base_unit' },
-                    { data: 'unit_type' },
+                    { data: 'unitID' },
+                    { data: 'name' },
+                    { data: 'baseUnit' },
+                    { data: 'unitType' },
                     {
                         data: null,
                         render: function(data) {
                             return `
                                 <div class="action-buttons">
-                                    <button class="btn btn-sm btn-primary edit-unit" data-id="${data.id}">
+                                    <button class="btn btn-sm btn-primary edit-unit" data-id="${data.unitID}">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-danger delete-unit" data-id="${data.id}">
+                                    <button class="btn btn-sm btn-danger delete-unit" data-id="${data.unitID}">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </div>
@@ -436,10 +436,10 @@
                     dataSrc: ''
                 },
                 columns: [
-                    { data: 'typeID' },
-                    { data: 'typeName' },
+                    { data: 'mealTypeID' },
+                    { data: 'mealTypeName' },
                     { 
-                        data: 'typeColor',
+                        data: 'mealTypeColor',
                         render: function(data) {
                             return `<div class="d-flex align-items-center">
                                 <div class="color-preview" style="background-color: ${data}"></div>
@@ -452,10 +452,10 @@
                         render: function(data) {
                             return `
                                 <div class="action-buttons">
-                                    <button class="btn btn-sm btn-primary edit-meal" data-id="${data.typeID}">
+                                    <button class="btn btn-sm btn-primary edit-meal" data-id="${data.mealTypeID}">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-danger delete-meal" data-id="${data.typeID}">
+                                    <button class="btn btn-sm btn-danger delete-meal" data-id="${data.mealTypeID}">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </div>
