@@ -42,19 +42,19 @@
         <h1 class="sb-4">Inventory Management</h1>
         <div class="sb-3">
             <div class="btn-group" role="group" aria-label="Inventory actions">
-                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addItemModal">
+                <!--- <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addItemModal">
                     Add New Item
-                </button>
+                </button> --->
                 <a href="shoppingList.htm" class="btn btn-outline-primary">View Shopping List</a>
-                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#manageCategoriesModal">
+                <!--- <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#manageCategoriesModal">
                     Categories
-                </button>
+                </button> --->
 
-                <a href="manageoptions.cfm" class="btn btn-outline-primary">Manage Options</a>
+                <a href="manageoptions.cfm" class="btn btn-outline-primary active">Manage Options</a>
                 
-                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#manageTagsModal">
+                <!--- <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#manageTagsModal">
                     Tags
-                </button>
+                </button> --->
 
                 <a href="reviewrecipes.htm" class="btn btn-outline-primary">Review Recipes</a>
                 <a href="/" class="btn btn-outline-primary">Meal Planner</a>
@@ -68,8 +68,13 @@
             <!-- Navigation Tabs -->
             <ul class="nav nav-tabs" id="optionsTabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="meals-tab" data-bs-toggle="tab" data-bs-target="#meals" type="button" role="tab">
-						Meal Types
+                    <button class="nav-link active" id="ingredients-tab" data-bs-toggle="tab" data-bs-target="#ingredients" type="button" role="tab">
+						Ingredients
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="meals-tab" data-bs-toggle="tab" data-bs-target="#meals" type="button" role="tab">
+                        Meal Types
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
@@ -96,8 +101,34 @@
             
             <!-- Tab Content -->
             <div class="tab-content" id="optionsTabContent">
+                
+                <!-- Ingredients Tab -->
+                <div class="tab-pane fade show active" id="ingredients" role="tabpanel">
+                    <div class="d-flex justify-content-between align-items-center my-3">
+                        <h3>Ingredient</h3>
+                        <note>
+                            inventoryMgmt.htm (look at code for inventory.cfm?method=getCategories) to see if you can replciate that code here
+                        </note>
+                        <button class="btn btn-primary" id="addIngredientBtn">
+                            <i class="fas fa-plus"></i> Add Ingredient
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table id="ingredientsTable" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <!--- <th>ID</th> --->
+                                    <th>Ingredient Name</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
                 <!-- Measurement Units Tab -->
-                <div class="tab-pane fade " id="units" role="tabpanel">
+                <div class="tab-pane fade" id="units" role="tabpanel">
                     <div class="d-flex justify-content-between align-items-center my-3">
                         <h3>Measurement Units</h3>
                         <button class="btn btn-primary" id="addUnitBtn">
@@ -108,7 +139,7 @@
                         <table id="unitsTable" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <!--- <th>ID</th> --->
                                     <th>Unit Name</th>
                                     <th>Base Unit</th>
                                     <th>Unit Type</th>
@@ -119,9 +150,9 @@
                         </table>
                     </div>
                 </div>
-                
+
                 <!-- Meal Types Tab -->
-                <div class="tab-pane fade show active" id="meals" role="tabpanel">
+                <div class="tab-pane fade" id="meals" role="tabpanel">
                     <div class="d-flex justify-content-between align-items-center my-3">
                         <h3>Meal Types</h3>
                         <button class="btn btn-primary" id="addMealBtn">
@@ -132,9 +163,10 @@
                         <table id="mealsTable" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <!--- <th>ID</th> --->
                                     <th>Type Name</th>
                                     <th>Color</th>
+                                    <th>Order</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -155,7 +187,7 @@
                         <table id="quantitiesTable" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <!--- <th>ID</th> --->
                                     <th>Option Value</th>
                                     <th>Text Value</th>
                                     <th>Actions</th>
@@ -178,7 +210,7 @@
                         <table id="tagsTable" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <!--- <th>ID</th> --->
                                     <th>Name</th>
                                     <th>Color</th>
                                     <th>Actions</th>
@@ -201,7 +233,7 @@
                         <table id="categoriesTable" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <!--- <th>ID</th> --->
                                     <th>Name</th>
                                     <th>Description</th>
                                     <th>Actions</th>
@@ -217,6 +249,31 @@
     </div>
     
     <!-- Modals -->
+    <!-- Ingredient Modal -->
+    <div class="modal fade" id="ingredientModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ingredientModalTitle">Add Ingredient</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="ingredientForm">
+                        <input type="hidden" id="ingredientID">
+                        <div class="mb-3">
+                            <label for="ingredient_name" class="form-label">Ingredient Name</label>
+                            <input type="text" class="form-control" id="ingredient_name" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveIngredientBtn">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Measurement Unit Modal -->
     <div class="modal fade" id="unitModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
@@ -401,13 +458,42 @@
     <script>
         $(document).ready(function() {
             // Initialize DataTables
+
+            const ingredientsTable = $('#ingredientsTable').DataTable({
+                ajax: {
+                    url: '/api/mealplanner.cfc?method=ingredients',
+                    dataSrc: ''
+                },
+                columns: [
+                    // { data: 'ingredientID' },
+                    { data: 'ingredient_name' },
+                    { 
+                        data: null,
+                        render: function(data) {
+                            return `
+                                <div class="action-buttons">
+                                    <button class="btn btn-sm btn-primary edit-ingredient" data-id="${data.ingredientID}">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-danger delete-ingredient" data-id="${data.ingredientID}">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            `;
+                        }
+                    }
+                ],
+                responsive: true
+            });
+
+
             const unitsTable = $('#unitsTable').DataTable({
                 ajax: {
                     url: '/api/mealplanner.cfc?method=measurementunits',
                     dataSrc: ''
                 },
                 columns: [
-                    { data: 'unitID' },
+                    // { data: 'unitID' },
                     { data: 'name' },
                     { data: 'baseUnit' },
                     { data: 'unitType' },
@@ -436,7 +522,7 @@
                     dataSrc: ''
                 },
                 columns: [
-                    { data: 'mealTypeID' },
+                    // { data: 'mealTypeID' },
                     { data: 'mealTypeName' },
                     { 
                         data: 'mealTypeColor',
@@ -447,6 +533,7 @@
                             </div>`;
                         }
                     },
+                    { data: 'orderBy' },
                     {
                         data: null,
                         render: function(data) {
@@ -465,14 +552,14 @@
                 ],
                 responsive: true
             });
-            
+
             const quantitiesTable = $('#quantitiesTable').DataTable({
                 ajax: {
                     url: '/api/mealplanner.cfc?method=quantity_options',
                     dataSrc: ''
                 },
                 columns: [
-                    { data: 'id' },
+                    // { data: 'id' },
                     { data: 'optionValue' },
                     { data: 'textValue' },
                     {
@@ -500,7 +587,7 @@
                     dataSrc: ''
                 },
                 columns: [
-                    { data: 'tag_id' },
+                    // { data: 'tag_id' },
                     { data: 'name' },
                     { 
                         data: 'color',
@@ -545,7 +632,7 @@
                     dataSrc: ''
                 },
                 columns: [
-				    { data: 'id' },
+				    // { data: 'id' },
 				    { data: 'catname' },
 				    { data: 'description' },
 				    {
@@ -602,7 +689,9 @@
                 bsToast.show();
             }
             
-            // MEASUREMENT UNITS CRUD
+// 
+// MEASUREMENT UNITS CRUD
+// 
             
             // Add Unit
             $('#addUnitBtn').on('click', function() {
@@ -674,7 +763,9 @@
                 $('#deleteModal').modal('show');
             });
             
-            // MEAL TYPES CRUD
+// 
+// MEAL TYPES CRUD
+// 
             
             // Add Meal Type
             $('#addMealBtn').on('click', function() {
@@ -745,8 +836,74 @@
                 $('#deleteItemType').val('meal');
                 $('#deleteModal').modal('show');
             });
+// 
+// INGREDIENT CRUD
+// 
             
-            // QUANTITY OPTIONS CRUD
+            // Add Ingredient
+            $('#addIngredientBtn').on('click', function() {
+                $('#ingredientModalTitle').text('Add Ingredient');
+                $('#ingredientForm')[0].reset();
+                $('#ingredientID').val('');
+                $('#ingredientModal').modal('show');
+            });
+            
+            // Edit Ingredient
+            $(document).on('click', '.edit-ingredient', function() {
+                const id = $(this).data('id');
+                
+                $.ajax({
+                    url: `api/ingredienttype/${id}`,
+                    method: 'GET',
+                    success: function(data) {
+                        $('#ingredientModalTitle').text('Edit Ingredient');
+                        $('#ingredientID').val(data.ingredientID);
+                        $('#ingredientName').val(data.ingredientName);
+                        $('#ingredientModal').modal('show');
+                    },
+                    error: function() {
+                        showNotification('Error', 'Failed to load ingredient data', 'error');
+                    }
+                });
+            });
+            
+            // Save Ingredient
+            $('#saveIngredientBtn').on('click', function() {
+                if (!$('#ingredientForm')[0].checkValidity()) {
+                    $('#ingredientForm')[0].reportValidity();
+                    return;
+                }
+                
+                const ingredient_name = $('#ingredient_name').val();
+                const url = `api/mealplanner.cfc?method=saveIngredientName`;
+                
+                $.ajax({
+                    url: url,
+                    method: 'post',
+                    contentType: 'application/json',
+                    data: 'ingredient_name=' + ingredient_name,
+                    success: function() {
+                        $('#ingredientModal').modal('hide');
+                        ingredientsTable.ajax.reload();
+                        showNotification('Success', `Ingredient ${ingredient_name} successfully`);
+                    },
+                    error: function() {
+                        showNotification('Error', `Failed to add ingredient`, 'error');
+                    }
+                });
+            });
+            
+            // Delete Ingredient
+            $(document).on('click', '.delete-ingredient', function() {
+                const id = $(this).data('id');
+                $('#deleteItemId').val(id);
+                $('#deleteItemType').val('ingredient');
+                $('#deleteModal').modal('show');
+            });
+            
+// 
+// QUANTITY OPTIONS CRUD
+// 
             
             // Add Quantity Option
             $('#addQuantityBtn').on('click', function() {
@@ -816,7 +973,9 @@
                 $('#deleteModal').modal('show');
             });
             
-            // TAGS CRUD
+// 
+// TAGS CRUD
+// 
             
             // Add Tag
             $('#addTagBtn').on('click', function() {

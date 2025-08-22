@@ -61,6 +61,7 @@ Order By
                   <li><a class="nav-link" href="/" id="menu-recipes">MEAL CARDS</a></li>
                   <li><a class="nav-link" href="calendar.cfm" id="menu-calendar">MEAL PLANNER</a></li>
                   <li><a class="nav-link" href="mealplannershoppinglist.htm" id="menu-shopping_list">SHOPPING LIST</a></li>
+                  <li><a class="nav-link" href="/manageoptions.cfm" id="menu-manage-options">MANAGE OPTIONS</a></li>
                   <li><a class="nav-link" href="inventoryMgmt.htm" id="menu-shopping_list">INVENTORY MGMT (Beta)</a></li>
                   <li><a class="nav-link" href="javascript:;" id="logout-button">LOGOUT</a></li>                
                 </ul>
@@ -98,7 +99,7 @@ Order By
                                             data-mealtypecolor="#mealTypes.mealTypeColor#"
                                             class="external-event fc-event"
                                             style="background-color: #mealTypes.mealTypeColor#; color: white; padding-left:5px;"
-                                        ><i class="fa fa-move"></i>#mealTypes.title#  <small>(Srv: #mealTypes.servings#)</small> - #mealTypes.mealTypeColor#
+                                        ><i class="fa fa-move"></i>#mealTypes.title#  <small>(Srv: #mealTypes.servings#)</small>
                                         </div>
                                       </cfoutput>
                                     </div>

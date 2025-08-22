@@ -11,6 +11,9 @@
   <!-- Bootstrap Icons (for trash can icon) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
   <!-- <link href="css/main.css?verion=1" rel="stylesheet"> -->
+  <!-- Toastr -->
+  <link rel="stylesheet" href="vendor/toastr/css/toastr.min.css">
+
   <link href="css/styles.css?verion=1" rel="stylesheet">
   <link href="css/index.css?verion=1" rel="stylesheet">
 
@@ -34,6 +37,7 @@
                   <li><a class="nav-link" href="/" id="menu-recipes">MEAL CARDS</a></li>
                   <li><a class="nav-link" href="calendar.cfm" id="menu-calendar">MEAL PLANNER</a></li>
                   <li><a class="nav-link" href="mealplannershoppinglist.htm" id="menu-shopping_list">SHOPPING LIST</a></li>
+                  <li><a class="nav-link" href="/manageoptions.cfm" id="menu-manage-options">MANAGE OPTIONS</a></li>
                   <li><a class="nav-link" href="inventoryMgmt.htm" id="menu-shopping_list">INVENTORY MGMT (Beta)</a></li>
                 </ul>
             </div>
@@ -212,7 +216,9 @@
   <!--- select2 --->
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <!-- show more -->
-  <script src="js/jquery.expander.js"></script>
+  <!--- <script src="js/jquery.expander.js"></script> --->
+  <!-- Toastr -->
+  <script src="vendor/toastr/js/toastr.min.js"></script>
 
   <!-- include summernote css/js -->
   <!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">

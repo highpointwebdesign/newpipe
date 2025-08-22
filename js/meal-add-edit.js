@@ -1,6 +1,28 @@
 $(document).ready(function () {
 
       $('#ingredientID').focus();
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const status = urlParams.get('status');
+      const msg = urlParams.get('msg');
+console.log(status);
+console.log(msg);
+      if status === 1 {
+            Swal.fire({
+                  title: "Oh Fork!",
+                  text: msg,
+                  icon: "danger",
+                  showCancelButton: false
+            })
+
+      } else if status === 0 {
+            Swal.fire({
+                  title: "Now you are cooking!",
+                  text: msg,
+                  icon: "success",
+                  showCancelButton: false
+            })
+      }
       // Load meals when the page loads.
       // loadMeals();
       // $('#details').summernote();

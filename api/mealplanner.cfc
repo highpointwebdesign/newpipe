@@ -1033,7 +1033,30 @@ component {
      * @name The name of the recipe to add
      * @returntype string
      */
-    remote string function addToMeals(required string recipe_id, required string name) returnformat="JSON" {
+    remote string function saveIngredientName(required string ingredient_name) returnformat="JSON" {
+        try {
+            queryExecute(
+                "INSERT INTO raw_ingredients (ingredient_name) VALUES (:ingredient_name)",
+                {
+                    ingredient_name   : arguments.ingredient_name
+                },
+                { datasource = variables.datasource }
+            );
+        } catch (any e) {
+            return serializeJSON({
+                success: false,
+                message: "Error adding ingredient name: " & e.message
+            });
+        }
+    }
+
+    /**
+     * Method to add ingredient into raw_ingredient
+     * @access remote
+     * @ingredient_name The name of the ingredient to add
+     * @returntype string
+     */
+    remote string function saveIngredientName(required string ingredientName, required string name) returnformat="JSON" {
         try {
             var insertedId = 0;
             
@@ -1211,8 +1234,8 @@ component {
         var results = [];
         for (var row in q) {
             arrayAppend(results, {
-                id = row.ingredientID
-                , name = row.ingredient_name
+                // ingredientID = row.ingredientID,
+                ingredient_name = row.ingredient_name
             });
         }
 
@@ -1221,7 +1244,7 @@ component {
 
     remote function mealtypes() httpmethod="GET" returnformat="JSON" {
         var q = queryExecute(
-                "SELECT mealTypeID, mealTypeName, mealTypeColor
+                "SELECT mealTypeID, mealTypeName, mealTypeColor, orderBy
                 FROM meal_types
                 ORDER BY mealTypeName",
                 {  },
@@ -1233,6 +1256,7 @@ component {
             arrayAppend(results, {
                 mealTypeID = row.mealTypeID
                 , mealTypeName = row.mealTypeName
+                , orderBy = row.orderBy
                 , mealTypeColor = row.mealTypeColor                
             });
         }
@@ -1263,7 +1287,7 @@ component {
 
     remote function quantity_options() httpmethod="GET" returnformat="JSON" {
         var q = queryExecute(
-                "SELECT id, optionValue, textValue
+                "SELECT quantityID, optionValue, textValue
                 FROM quantity_options
                 ORDER BY textValue",
                 {  },
@@ -1273,7 +1297,7 @@ component {
         var results = [];
         for (var row in q) {
             arrayAppend(results, {
-                id = row.id
+                id = row.quantityID
                 , optionValue = row.optionValue
                 , textValue = row.textValue                
             });

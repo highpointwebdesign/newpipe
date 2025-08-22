@@ -1,5 +1,3 @@
-<cfparam name="result.status" default="0">
-<cfparam name="result.msg" default="Unable to provide a status update at this time.">
 <cfparam name="url.action" default="error">
 <cfparam name="form.action" default="#url.action#">
 
@@ -47,31 +45,37 @@
 						for (i = 1; i <= arrayLen(ingredientIDArray); i++) {
 						 try {
 						    queryExecute(
-						        "INSERT INTO meal_ingredients (mealID, ingredientID, quantityID, unit) VALUES (:mealId, :ingredientID, :quantityID, :unit) WHERE ingredientID > 0",
-						        {
-						            mealId      : form.mealId,
-						            ingredientID: ingredientIDArray[i],
-						            quantityID    : quantityIDArray[i],
-						            unit        : uomArray[i]
-						        },
-						        { datasource = 'sg' }
-						    );
+							    "INSERT INTO meal_ingredients (mealID, ingredientID, quantityID, unit)
+							     SELECT :mealId, :ingredientID, :quantityID, :unit
+							     WHERE :ingredientID > 0",
+							    {
+							        mealId      : form.mealId,
+							        ingredientID: ingredientIDArray[i],
+							        quantityID  : quantityIDArray[i],
+							        unit        : uomArray[i]
+							    },
+							    { datasource = 'sg' }
+							);
 							} catch (any e) {
 							    // Log the error but continue with the next iteration
-							    writeLog(file="mealplanner", text="Error inserting ingredient #i#: #e.message#");
-							    writeDump(e);
-							    writeDump(e.message);
-							    writeDump(form);
-							    abort;
+							    writeLog(file="mealplanner", text="Error inserting ingredient #i#: #e.message#");							    
+							    result.status=0;
+							    result.msg = 'We dropped the fork on this one. The Chef has been notified.'; 
+							    location url="/meal_crud.cfm?id=#form.mealID#&action=#form.action#&status=#result.status#&msg=#result.msg###bottom" addtoken="false";
 							}
 						}
 			        }
 			</cfscript>
-			<cfset result.msg ="Ingredient added...">
+			
+			
 			<cfif form.action eq 'addIngredient'>
-				<cflocation url="meal_crud.cfm?id=#form.mealID#&status=1&action=#form.action#&status=#result.status#&msg=#result.msg###bottom" addtoken="false">
+				<cfset result.msg ="Ingredient added.">
+				<cfset result.status = 1>
+				<cflocation url="meal_crud.cfm?id=#form.mealID#&action=#form.action#&status=#result.status#&msg=#result.msg###bottom" addtoken="false">
 			<cfelse>
-				<cflocation url="/?status=1&action=#form.action#&status=#result.status#&msg=#result.msg#" addtoken="false">
+				<cfset result.msg ="Meal has been saved.">
+				<cfset result.status = 1>
+				<cflocation url="/?action=#form.action#&status=#result.status#&msg=#result.msg#" addtoken="false">
 			</cfif>
 
 
@@ -82,6 +86,8 @@
 		<!--- remove --->
 		
 		<cfscript>
+		try{
+
 			queryExecute(
                 "delete from meal_ingredients WHERE mealId = :mealId and miID = :miID",
                 { 
@@ -90,6 +96,13 @@
                 },
                 { datasource = 'sg' }
             );
+
+		} catch (any e) {
+		    // Log the error but continue with the next iteration
+		    writeLog(file="mealplanner", text="Error removing ingredient #i#: #e.message#");							    
+		    result.status=0;
+		    result.msg = 'We forked this up and were not able to remove the ingredient. The Chef has been notified.'; 
+		}
 		</cfscript>
 
 	</cfcase>

@@ -3,7 +3,48 @@ $(document).ready(function () {
       loadMeals();
       // $('#details').summernote();
 
+      const urlParams = new URLSearchParams(window.location.search);
+      const status = urlParams.get('status');
+      // const statusNum = parseInt(status, 10); // converts string to integer
 
+      const msg = urlParams.get('msg');
+console.log(status);
+console.log(msg);
+      if (status === "0") {
+            Swal.fire({
+                  title: "Oh Fork!",
+                  text: msg,
+                  icon: "error",
+                  // footer: '<a href="#">Why do I have this issue?</a>',
+                  showCancelButton: false
+            })
+
+      } else if (status === "1") {
+            // Swal.fire({
+            //       title: "Now you are cooking!",
+            //       text: msg,
+            //       icon: "success",
+            //       showCancelButton: false
+            // });
+        console.log('toastr should hav run');
+          toastr.info(msg, "Success!", {
+              timeOut: 5e3,
+              closeButton: !0,
+              debug: !1,
+              newestOnTop: !0,
+              progressBar: !0,
+              preventDuplicates: !0,
+              onclick: null,
+              showDuration: "300",
+              hideDuration: "1000",
+              extendedTimeOut: "1000",
+              showEasing: "swing",
+              hideEasing: "linear",
+              showMethod: "fadeIn",
+              hideMethod: "fadeOut",
+              tapToDismiss: !1
+          })
+      }
 
     function filterCards() {
       const searchInput = $('#cardSearchInput').val().toLowerCase().trim();
@@ -335,7 +376,7 @@ $(document).ready(function () {
             success: function (res) {
               if (res.success) {
                 console.log(res);
-                
+
                 window.location.replace("meal_crud.cfm?id=" + res.mealId);
               } else {
                 Swal.fire("Error", "Could not save meal.", "error");
