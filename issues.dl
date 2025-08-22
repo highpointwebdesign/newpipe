@@ -14,3 +14,4 @@ IN mealplanner.js around line 95
 	ENHANCEMENT
 		1. when viewing the calendar, the app pulls the gcal data from google.
 		2. Parse out mealTypeID, run them against the database to determine the color it should be on the calendar since this could be changed after the meal was planned.
+		3. the shopping list doesn't take into consideration the quantities needed for the selected date. OR, the dates are not being recognized.

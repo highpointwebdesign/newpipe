@@ -385,28 +385,6 @@ component {
         return { success = true };
     }
 
-    // remote any function getMealIngredients(required numeric mealId) {
-    //     var result = [];
-    //     var ingredientQry = queryExecute(
-    //         "SELECT id, mealID, ingredient_name, quantity, unit order by ingredient_name asc",
-    //         {},
-    //         { datasource = variables.datasource }
-    //     );
-        
-    //     for (var i = 1; i <= ingredientQry.recordCount; i++) {
-    //         var ingredients = {
-    //             id          : ingredientQry.id[i],
-    //             mealID       : ingredientQry.mealID[i],
-    //             ingredient_name    : ingredientQry.ingredient_name[i],
-    //             quantity    : ingredientQry.quantity[i],
-    //             unit  : ingredientQry.unit[i]
-    //         };
-
-    //         arrayAppend(ingredients);
-    //     }
-    //     return result;
-    // }
-
     remote any function getMealIngredients(required string mealIds) {
         var result = []; // Initialize an empty array
         // Build the SQL using the IN clause.
@@ -461,6 +439,79 @@ component {
                 baseUnit        : ingredientQry.baseUnit[i],
                 baseUnit        : ingredientQry.baseUnit[i],
                 ingredient_name        : ingredientQry.ingredient_name[i]
+            };
+            arrayAppend(result, ingredientData);
+        }
+
+        return result;
+    }
+
+    remote any function getMealIngredientsForShoppingList(required string mealIds) {
+        var result = []; // Initialize an empty array
+        // Build the SQL using the IN clause.
+        // The list attribute in the options ensures that the mealIds parameter (a comma-separated list)
+        // is properly expanded into multiple values.
+        // var sql = "
+        //     SELECT id, mealID, ingredient_name, quantity, unit
+        //     FROM meal_ingredients
+        //     WHERE mealID IN (:mealIds)
+        //     ORDER BY ingredient_name ASC
+        // ";
+        var sql = "
+            Select
+                r.ingredient_name,
+                mi.unit,
+                mi.ingredientID,
+                u.unitName,
+                u.baseUnit,
+                u.unitType,
+                Sum(q1.optionValue) As totalQuantityDecimal,
+                (Select
+                     qo.textValue
+                 From
+                     quantity_options qo
+                 Where
+                     qo.optionValue = ROUND(Sum(q1.optionValue), 3)
+                 Limit 1) As totalQuantityFraction,
+                m.mealID,
+                m.servings
+            From
+                meal_ingredients mi Left Join
+                raw_ingredients r On r.ingredientID = mi.ingredientID Left Join
+                measurementunits u On u.unitID = mi.unit Left Join
+                quantity_options q1 On q1.quantityID = mi.quantityID Right Join
+                meals m On mi.mealID = m.mealID
+            Where
+                m.mealID In (:mealIds)
+            Group By
+                r.ingredient_name,
+                mi.unit,
+                mi.ingredientID,
+                u.unitName,
+                u.baseUnit,
+                u.unitType,
+                m.mealID,
+                m.servings
+            Order By
+                r.ingredient_name";
+        
+        var ingredientQry = queryExecute(
+            sql,
+            { mealIds: { value: arguments.mealIds, cfsqltype: "cf_sql_integer", list:"true" }},
+            { datasource = variables.datasource, list = true }
+        );
+
+        for (var i = 1; i <= ingredientQry.recordCount; i++) {
+            var ingredientData = {
+                // quantity        : ingredientQry.quantity[i],
+                mealID        : ingredientQry.mealID[i],
+                servings        : ingredientQry.servings[i],
+                ingredient_name        : ingredientQry.ingredient_name[i],
+
+                totalQuantityFraction        : ingredientQry.totalQuantityFraction[i],
+                optionValue        : ingredientQry.totalQuantityDecimal[i],
+                baseUnit        : ingredientQry.baseUnit[i],
+                baseUnit        : ingredientQry.baseUnit[i]
             };
             arrayAppend(result, ingredientData);
         }

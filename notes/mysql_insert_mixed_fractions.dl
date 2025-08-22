@@ -1,0 +1,77 @@
+-- First, let's create a temporary table to hold our values
+CREATE TEMPORARY TABLE temp_quantity_options (
+    optionValue DECIMAL(9,3) NOT NULL,
+    textValue VARCHAR(10) NOT NULL
+);
+
+-- Insert whole numbers from 6 to 999
+INSERT INTO temp_quantity_options (optionValue, textValue)
+SELECT 
+    number AS optionValue,
+    CAST(number AS CHAR) AS textValue
+FROM (
+    SELECT 6 + units.n + tens.n * 10 + hundreds.n * 100 AS number
+    FROM
+        (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) units,
+        (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) tens,
+        (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) hundreds
+    WHERE (6 + units.n + tens.n * 10 + hundreds.n * 100) <= 1000
+) numbers
+WHERE number NOT IN (SELECT optionValue FROM quantity_options WHERE optionValue = FLOOR(optionValue));
+
+-- Insert quarter fractions (X.25) from 5.25 to 999.25
+INSERT INTO temp_quantity_options (optionValue, textValue)
+SELECT 
+    number + 0.125 AS optionValue,
+    CONCAT(FLOOR(number + 0.125), '-1/4') AS textValue
+FROM (
+    SELECT 5 + units.n + tens.n * 10 + hundreds.n * 100 AS number
+    FROM
+        (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) units,
+        (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) tens,
+        (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) hundreds
+    WHERE (5 + units.n + tens.n * 10 + hundreds.n * 100) < 1000
+) numbers
+WHERE (number + 0.125) NOT IN (SELECT optionValue FROM quantity_options);
+
+-- Insert half fractions (X.5) from 5.5 to 999.5
+INSERT INTO temp_quantity_options (optionValue, textValue)
+SELECT 
+    number + 0.5 AS optionValue,
+    CONCAT(FLOOR(number + 0.5), '-1/2') AS textValue
+FROM (
+    SELECT 5 + units.n + tens.n * 10 + hundreds.n * 100 AS number
+    FROM
+        (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) units,
+        (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) tens,
+        (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) hundreds
+    WHERE (5 + units.n + tens.n * 10 + hundreds.n * 100) < 1000
+) numbers
+WHERE (number + 0.5) NOT IN (SELECT optionValue FROM quantity_options);
+
+-- Insert three-quarter fractions (X.75) from 5.75 to 999.75
+INSERT INTO temp_quantity_options (optionValue, textValue)
+SELECT 
+    number + 0.75 AS optionValue,
+    CONCAT(FLOOR(number + 0.75), '-3/4') AS textValue
+FROM (
+    SELECT 5 + units.n + tens.n * 10 + hundreds.n * 100 AS number
+    FROM
+        (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) units,
+        (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) tens,
+        (SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9) hundreds
+    WHERE (5 + units.n + tens.n * 10 + hundreds.n * 100) < 1000
+) numbers
+WHERE (number + 0.75) NOT IN (SELECT optionValue FROM quantity_options);
+
+-- Finally, insert 1000
+INSERT INTO temp_quantity_options (optionValue, textValue)
+VALUES (1000.000, '1000');
+
+-- Now insert from our temporary table to the actual table
+INSERT INTO quantity_options (optionValue, textValue)
+SELECT optionValue, textValue FROM temp_quantity_options
+ORDER BY optionValue;
+
+-- Clean up
+DROP TEMPORARY TABLE temp_quantity_options;
