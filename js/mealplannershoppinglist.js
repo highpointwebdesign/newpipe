@@ -20,9 +20,9 @@ if (!userAccessToken) {
 $(function() {
   // Initialize date picker
   //  const start = moment().add(1, 'days');
-  const start = '09/03/2025';
+  const start = '08/11/2025';
   //  const end = moment().add(14, 'days');;
-  const end = moment().add(120, 'days');
+  const end = moment().add(5, 'days');
   
   $(CONFIG.selectors.dateFilter).daterangepicker({
     autoUpdateInput: true,
