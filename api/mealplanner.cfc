@@ -168,7 +168,7 @@ component {
      */
     remote any function archiveMeal(required numeric mealId) {
         queryExecute(
-            "UPDATE meals SET isDeleted = 1 WHERE mealID = :mealId",
+            "UPDATE meals SET isDeleted = 1 WHERE mealID = :mealId;",
             { mealId = arguments.mealId },
             { datasource = variables.datasource }
         );
@@ -459,6 +459,8 @@ component {
         // ";
         var sql = "
             Select
+                m.mealID,
+                m.servings,
                 r.ingredient_name,
                 mi.unit,
                 mi.ingredientID,
@@ -472,9 +474,7 @@ component {
                      quantity_options qo
                  Where
                      qo.optionValue = ROUND(Sum(q1.optionValue), 3)
-                 Limit 1) As totalQuantityFraction,
-                m.mealID,
-                m.servings
+                 Limit 1) As totalQuantityFraction
             From
                 meal_ingredients mi Left Join
                 raw_ingredients r On r.ingredientID = mi.ingredientID Left Join
@@ -482,16 +482,18 @@ component {
                 quantity_options q1 On q1.quantityID = mi.quantityID Right Join
                 meals m On mi.mealID = m.mealID
             Where
-                m.mealID In (:mealIds)
+                m.mealID In (:mealIds) And
+                m.isDeleted = 0
             Group By
+                m.mealID,
+                m.servings,
                 r.ingredient_name,
                 mi.unit,
                 mi.ingredientID,
                 u.unitName,
                 u.baseUnit,
                 u.unitType,
-                m.mealID,
-                m.servings
+                m.isDeleted
             Order By
                 r.ingredient_name";
         
