@@ -182,7 +182,7 @@ Order By
   	                        <select class="form-control" required name="uom">
   	                          <option value="0">Select Unit (e.g., Cup, tsp)</option>
   	                          <cfloop query="UoM">
-  	                          	<option value="#UoM.unitID#" <cfif uom.unitID eq getMealCard.unit>selected</cfif> >#UoM.unitName# (#UoM.baseUnit#/#UoM.unitType#)</option>
+  	                          	<option value="#UoM.unitID#" <cfif uom.unitID eq getMealCard.unitID>selected</cfif> >#UoM.unitName# (#UoM.baseUnit#/#UoM.unitType#)</option>
   	                          </cfloop>
   	                        </select>
   	                      </div>

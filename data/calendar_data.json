@@ -1,0 +1,2079 @@
+{
+ "kind": "calendar#events",
+ "etag": "\"p33vo1372oigou0o\"",
+ "summary": "RV Meals",
+ "description": "",
+ "updated": "2025-08-23T18:14:48.625Z",
+ "timeZone": "America/Chicago",
+ "accessRole": "owner",
+ "defaultReminders": [],
+ "items": [
+  {
+   "kind": "calendar#event",
+   "etag": "\"3511798002355486\"",
+   "id": "39209q1u5ckm5ev55dt14hp3fg",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MzkyMDlxMXU1Y2ttNWV2NTVkdDE0aHAzZmcgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-22T21:43:20.000Z",
+   "updated": "2025-08-22T21:43:21.177Z",
+   "summary": "Apples  (Srv: 2)",
+   "description": "MealID:39|Servings:2|MealType:1|MealTypeColor:#5C3799",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-08-11"
+   },
+   "end": {
+    "date": "2025-08-12"
+   },
+   "iCalUID": "39209q1u5ckm5ev55dt14hp3fg@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "1",
+     "servings": "2",
+     "mealId": "39",
+     "mealTypeColor": "#5C3799"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3511797940081886\"",
+   "id": "lho01iiqui3da81cocon8mcfnk",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=bGhvMDFpaXF1aTNkYTgxY29jb244bWNmbmsgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-22T21:42:49.000Z",
+   "updated": "2025-08-22T21:42:50.040Z",
+   "summary": "Onion  (Srv: 10)",
+   "description": "MealID:40|Servings:10|MealType:8|MealTypeColor:#9eeaf9",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-08-11"
+   },
+   "end": {
+    "date": "2025-08-16"
+   },
+   "iCalUID": "lho01iiqui3da81cocon8mcfnk@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "8",
+     "servings": "10",
+     "mealId": "40",
+     "mealTypeColor": "#9eeaf9"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3511798007219454\"",
+   "id": "0jlk4pckhfsg7snfphute3dkdo",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MGpsazRwY2toZnNnN3NuZnBodXRlM2RrZG8gZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-22T21:43:23.000Z",
+   "updated": "2025-08-22T21:43:23.609Z",
+   "summary": "Apples  (Srv: 2)",
+   "description": "MealID:39|Servings:2|MealType:1|MealTypeColor:#5C3799",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-08-12"
+   },
+   "end": {
+    "date": "2025-08-13"
+   },
+   "iCalUID": "0jlk4pckhfsg7snfphute3dkdo@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "1",
+     "servings": "2",
+     "mealId": "39",
+     "mealTypeColor": "#5C3799"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3511798011090526\"",
+   "id": "har3q38tn79lb3kivf417kfb70",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=aGFyM3EzOHRuNzlsYjNraXZmNDE3a2ZiNzAgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-22T21:43:25.000Z",
+   "updated": "2025-08-22T21:43:25.545Z",
+   "summary": "Apples  (Srv: 2)",
+   "description": "MealID:39|Servings:2|MealType:1|MealTypeColor:#5C3799",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-08-13"
+   },
+   "end": {
+    "date": "2025-08-14"
+   },
+   "iCalUID": "har3q38tn79lb3kivf417kfb70@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "1",
+     "servings": "2",
+     "mealId": "39",
+     "mealTypeColor": "#5C3799"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3511798014712926\"",
+   "id": "4g9b3olg0n3p06ar1nmei3apgk",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NGc5YjNvbGcwbjNwMDZhcjFubWVpM2FwZ2sgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-22T21:43:27.000Z",
+   "updated": "2025-08-22T21:43:27.356Z",
+   "summary": "Apples  (Srv: 2)",
+   "description": "MealID:39|Servings:2|MealType:1|MealTypeColor:#5C3799",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-08-14"
+   },
+   "end": {
+    "date": "2025-08-15"
+   },
+   "iCalUID": "4g9b3olg0n3p06ar1nmei3apgk@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "1",
+     "servings": "2",
+     "mealId": "39",
+     "mealTypeColor": "#5C3799"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3511798018074782\"",
+   "id": "5juh0b7ikgtnmfu54dsgdamm80",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NWp1aDBiN2lrZ3RubWZ1NTRkc2dkYW1tODAgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-22T21:43:28.000Z",
+   "updated": "2025-08-22T21:43:29.037Z",
+   "summary": "Apples  (Srv: 2)",
+   "description": "MealID:39|Servings:2|MealType:1|MealTypeColor:#5C3799",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-08-15"
+   },
+   "end": {
+    "date": "2025-08-16"
+   },
+   "iCalUID": "5juh0b7ikgtnmfu54dsgdamm80@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "1",
+     "servings": "2",
+     "mealId": "39",
+     "mealTypeColor": "#5C3799"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3511661659718494\"",
+   "id": "aifpk614cfea456qml78h2anmg",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=YWlmcGs2MTRjZmVhNDU2cW1sNzhoMmFubWcgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-22T02:47:09.000Z",
+   "updated": "2025-08-22T02:47:09.859Z",
+   "summary": "Black Beans and Rice  (Srv: 2)",
+   "description": "MealID:32|Servings:2|MealType:2|MealTypeColor:#1ab5ac",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-09-16"
+   },
+   "end": {
+    "date": "2025-09-17"
+   },
+   "iCalUID": "aifpk614cfea456qml78h2anmg@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "2",
+     "servings": "2",
+     "mealId": "32",
+     "mealTypeColor": "#1ab5ac"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3511661867505342\"",
+   "id": "f45itffcqos831cu07ac58g8tg",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=ZjQ1aXRmZmNxb3M4MzFjdTA3YWM1OGc4dGcgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-22T02:48:53.000Z",
+   "updated": "2025-08-22T02:48:53.752Z",
+   "summary": "TEST  (Srv: 4)",
+   "description": "MealID:38|Servings:4|MealType:4|MealTypeColor:#ff887c",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-09-16"
+   },
+   "end": {
+    "date": "2025-09-18"
+   },
+   "iCalUID": "f45itffcqos831cu07ac58g8tg@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "4",
+     "servings": "4",
+     "mealId": "38",
+     "mealTypeColor": "#ff887c"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3511661717372062\"",
+   "id": "iahs01o7p80k16ips9ht4dqpek",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=aWFoczAxbzdwODBrMTZpcHM5aHQ0ZHFwZWsgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-22T02:47:38.000Z",
+   "updated": "2025-08-22T02:47:38.686Z",
+   "summary": "Black Bean & Ground Chicken Skillet  (Srv: 2)",
+   "description": "MealID:10|Servings:2|MealType:3|MealTypeColor:#2953E8",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-09-16"
+   },
+   "end": {
+    "date": "2025-09-17"
+   },
+   "iCalUID": "iahs01o7p80k16ips9ht4dqpek@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "3",
+     "servings": "2",
+     "mealId": "10",
+     "mealTypeColor": "#2953E8"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3511661633019390\"",
+   "id": "kj5m1n1d520ssflng1pbderaak",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=a2o1bTFuMWQ1MjBzc2ZsbmcxcGJkZXJhYWsgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-22T02:46:56.000Z",
+   "updated": "2025-08-22T02:46:56.509Z",
+   "summary": "Paleo Porridge (Breakfast Oatmeal)  (Srv: 27)",
+   "description": "MealID:20|Servings:27|MealType:1|MealTypeColor:#5C3799",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-09-16"
+   },
+   "end": {
+    "date": "2025-09-30"
+   },
+   "iCalUID": "kj5m1n1d520ssflng1pbderaak@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "1",
+     "servings": "27",
+     "mealId": "20",
+     "mealTypeColor": "#5C3799"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3511661750560830\"",
+   "id": "aju313iffjt3dmfbm3n6pe8slg",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=YWp1MzEzaWZmanQzZG1mYm0zbjZwZThzbGcgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-22T02:47:55.000Z",
+   "updated": "2025-08-22T02:47:55.280Z",
+   "summary": "Beef and Red Bean Chili  (Srv: 6)",
+   "description": "MealID:1|Servings:6|MealType:3|MealTypeColor:#2953E8",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-09-17"
+   },
+   "end": {
+    "date": "2025-09-20"
+   },
+   "iCalUID": "aju313iffjt3dmfbm3n6pe8slg@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "3",
+     "servings": "6",
+     "mealId": "1",
+     "mealTypeColor": "#2953E8"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3511661683915710\"",
+   "id": "mjoakv93egqvf9d8kbohfk5hag",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=bWpvYWt2OTNlZ3F2ZjlkOGtib2hmazVoYWcgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-22T02:47:21.000Z",
+   "updated": "2025-08-22T02:47:21.957Z",
+   "summary": "Black Beans and Rice  (Srv: 2)",
+   "description": "MealID:32|Servings:2|MealType:2|MealTypeColor:#1ab5ac",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-09-17"
+   },
+   "end": {
+    "date": "2025-09-18"
+   },
+   "iCalUID": "mjoakv93egqvf9d8kbohfk5hag@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "2",
+     "servings": "2",
+     "mealId": "32",
+     "mealTypeColor": "#1ab5ac"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3511661688874814\"",
+   "id": "793m31ptte8aqq54jg86d724j0",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NzkzbTMxcHR0ZThhcXE1NGpnODZkNzI0ajAgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-22T02:47:24.000Z",
+   "updated": "2025-08-22T02:47:24.437Z",
+   "summary": "Black Beans and Rice  (Srv: 2)",
+   "description": "MealID:32|Servings:2|MealType:2|MealTypeColor:#1ab5ac",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-09-18"
+   },
+   "end": {
+    "date": "2025-09-19"
+   },
+   "iCalUID": "793m31ptte8aqq54jg86d724j0@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "2",
+     "servings": "2",
+     "mealId": "32",
+     "mealTypeColor": "#1ab5ac"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3511661872980702\"",
+   "id": "c4afhrue0ilbj5tvum70bf4avc",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=YzRhZmhydWUwaWxiajV0dnVtNzBiZjRhdmMgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-22T02:48:56.000Z",
+   "updated": "2025-08-22T02:48:56.490Z",
+   "summary": "test 5  (Srv: 4)",
+   "description": "MealID:37|Servings:4|MealType:4|MealTypeColor:#ff887c",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-09-18"
+   },
+   "end": {
+    "date": "2025-09-20"
+   },
+   "iCalUID": "c4afhrue0ilbj5tvum70bf4avc@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "4",
+     "servings": "4",
+     "mealId": "37",
+     "mealTypeColor": "#ff887c"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3511661771089854\"",
+   "id": "nentfnlm54o39ichisvirrtlpk",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=bmVudGZubG01NG8zOWljaGlzdmlycnRscGsgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-22T02:48:05.000Z",
+   "updated": "2025-08-22T02:48:05.544Z",
+   "summary": "Black Beans and Rice  (Srv: 2)",
+   "description": "MealID:32|Servings:2|MealType:2|MealTypeColor:#1ab5ac",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-09-19"
+   },
+   "end": {
+    "date": "2025-09-20"
+   },
+   "iCalUID": "nentfnlm54o39ichisvirrtlpk@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "2",
+     "servings": "2",
+     "mealId": "32",
+     "mealTypeColor": "#1ab5ac"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510900276805086\"",
+   "id": "5alcuua2jj8cll27rhc5r767hk",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NWFsY3V1YTJqajhjbGwyN3JoYzVyNzY3aGsgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T17:02:18.000Z",
+   "updated": "2025-08-17T17:02:18.402Z",
+   "summary": "Chicken Alfredo with Brocolli",
+   "description": "MealID:3|Servings:4|MealType:Dinner",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-09-22"
+   },
+   "end": {
+    "date": "2025-09-24"
+   },
+   "iCalUID": "5alcuua2jj8cll27rhc5r767hk@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Dinner",
+     "servings": "4",
+     "mealId": "3"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510900281571486\"",
+   "id": "i2v5v2s2dr6abvke01qevb4cbs",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=aTJ2NXYyczJkcjZhYnZrZTAxcWV2YjRjYnMgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T17:02:20.000Z",
+   "updated": "2025-08-17T17:02:20.785Z",
+   "summary": "Creamy Bean Soup",
+   "description": "MealID:6|Servings:4|MealType:Dinner",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-09-24"
+   },
+   "end": {
+    "date": "2025-09-26"
+   },
+   "iCalUID": "i2v5v2s2dr6abvke01qevb4cbs@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Dinner",
+     "servings": "4",
+     "mealId": "6"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908310557118\"",
+   "id": "t5m4dq6piognjbsm32r844af98",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=dDVtNGRxNnBpb2duamJzbTMycjg0NGFmOTggZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:09:15.000Z",
+   "updated": "2025-08-17T18:09:15.278Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-09-24"
+   },
+   "end": {
+    "date": "2025-09-26"
+   },
+   "iCalUID": "t5m4dq6piognjbsm32r844af98@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908315878878\"",
+   "id": "m8osf4aao5r06agepo4lgl3tko",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=bThvc2Y0YWFvNXIwNmFnZXBvNGxnbDN0a28gZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:09:17.000Z",
+   "updated": "2025-08-17T18:09:17.939Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-09-26"
+   },
+   "end": {
+    "date": "2025-09-28"
+   },
+   "iCalUID": "m8osf4aao5r06agepo4lgl3tko@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510900288729502\"",
+   "id": "pbp57olgvibc7bqabi5q9jfg5o",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=cGJwNTdvbGd2aWJjN2JxYWJpNXE5amZnNW8gZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T17:02:24.000Z",
+   "updated": "2025-08-17T17:02:24.364Z",
+   "summary": "Fudd Hamburger Helper",
+   "description": "MealID:4|Servings:6|MealType:Dinner",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-09-26"
+   },
+   "end": {
+    "date": "2025-09-29"
+   },
+   "iCalUID": "pbp57olgvibc7bqabi5q9jfg5o@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Dinner",
+     "servings": "6",
+     "mealId": "4"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908326703198\"",
+   "id": "lolr7j7ei3ubt31qai0lit69a4",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=bG9scjdqN2VpM3VidDMxcWFpMGxpdDY5YTQgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:09:23.000Z",
+   "updated": "2025-08-17T18:09:23.351Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-09-28"
+   },
+   "end": {
+    "date": "2025-09-30"
+   },
+   "iCalUID": "lolr7j7ei3ubt31qai0lit69a4@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510900300106174\"",
+   "id": "9fusn6tjrv6o5uq2fns6p4k3hc",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=OWZ1c242dGpydjZvNXVxMmZuczZwNGszaGMgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T17:02:29.000Z",
+   "updated": "2025-08-17T17:02:30.053Z",
+   "summary": "Ground Beef and Navy Bean Hash",
+   "description": "MealID:12|Servings:4|MealType:Dinner",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-09-29"
+   },
+   "end": {
+    "date": "2025-10-01"
+   },
+   "iCalUID": "9fusn6tjrv6o5uq2fns6p4k3hc@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Dinner",
+     "servings": "4",
+     "mealId": "12"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908331001534\"",
+   "id": "burp5blkphuevfg9m0eurdjkog",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=YnVycDVibGtwaHVldmZnOW0wZXVyZGprb2cgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:09:25.000Z",
+   "updated": "2025-08-17T18:09:25.500Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-09-30"
+   },
+   "end": {
+    "date": "2025-10-02"
+   },
+   "iCalUID": "burp5blkphuevfg9m0eurdjkog@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510900305804446\"",
+   "id": "1bdrgdnupnbqrqqearg028355c",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MWJkcmdkbnVwbmJxcnFxZWFyZzAyODM1NWMgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T17:02:32.000Z",
+   "updated": "2025-08-17T17:02:32.902Z",
+   "summary": "Kidney Bean and Ground Chicken Curry",
+   "description": "MealID:14|Servings:4|MealType:Dinner",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-01"
+   },
+   "end": {
+    "date": "2025-10-03"
+   },
+   "iCalUID": "1bdrgdnupnbqrqqearg028355c@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Dinner",
+     "servings": "4",
+     "mealId": "14"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908334923102\"",
+   "id": "q5uib4umgpd91j5p72emeelqh8",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=cTV1aWI0dW1ncGQ5MWo1cDcyZW1lZWxxaDggZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:09:27.000Z",
+   "updated": "2025-08-17T18:09:27.461Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-02"
+   },
+   "end": {
+    "date": "2025-10-04"
+   },
+   "iCalUID": "q5uib4umgpd91j5p72emeelqh8@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510900311438686\"",
+   "id": "jpjgur14h0aks36ca7s0m707j8",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=anBqZ3VyMTRoMGFrczM2Y2E3czBtNzA3ajggZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T17:02:35.000Z",
+   "updated": "2025-08-17T17:02:35.719Z",
+   "summary": "Navy Bean and Jackfruit Stew",
+   "description": "MealID:13|Servings:4|MealType:Dinner",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-03"
+   },
+   "end": {
+    "date": "2025-10-05"
+   },
+   "iCalUID": "jpjgur14h0aks36ca7s0m707j8@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Dinner",
+     "servings": "4",
+     "mealId": "13"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908339023294\"",
+   "id": "ki7hlef6fu8i5vi87samd24poc",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=a2k3aGxlZjZmdThpNXZpODdzYW1kMjRwb2MgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:09:29.000Z",
+   "updated": "2025-08-17T18:09:29.511Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-04"
+   },
+   "end": {
+    "date": "2025-10-06"
+   },
+   "iCalUID": "ki7hlef6fu8i5vi87samd24poc@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510900351370398\"",
+   "id": "atgmr03aor36vr8m6cdbhph614",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=YXRnbXIwM2FvcjM2dnI4bTZjZGJocGg2MTQgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T17:02:55.000Z",
+   "updated": "2025-08-17T17:02:55.685Z",
+   "summary": "Pizza Crust-GF",
+   "description": "MealID:21|Servings:6|MealType:Dinner",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-05"
+   },
+   "end": {
+    "date": "2025-10-08"
+   },
+   "iCalUID": "atgmr03aor36vr8m6cdbhph614@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Dinner",
+     "servings": "6",
+     "mealId": "21"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908346952510\"",
+   "id": "bf14g93jsijlpe29ana4lm51ec",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=YmYxNGc5M2pzaWpscGUyOWFuYTRsbTUxZWMgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:09:33.000Z",
+   "updated": "2025-08-17T18:09:33.476Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-06"
+   },
+   "end": {
+    "date": "2025-10-08"
+   },
+   "iCalUID": "bf14g93jsijlpe29ana4lm51ec@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510900357298622\"",
+   "id": "a0ultpjtph0fmds14h04hk2p18",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=YTB1bHRwanRwaDBmbWRzMTRoMDRoazJwMTggZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T17:02:58.000Z",
+   "updated": "2025-08-17T17:02:58.649Z",
+   "summary": "Potato Stroganoff Hamburger Helper",
+   "description": "MealID:2|Servings:4|MealType:Dinner",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-08"
+   },
+   "end": {
+    "date": "2025-10-10"
+   },
+   "iCalUID": "a0ultpjtph0fmds14h04hk2p18@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Dinner",
+     "servings": "4",
+     "mealId": "2"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908352009150\"",
+   "id": "nv4filhulajob5jbpmbie09oug",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=bnY0ZmlsaHVsYWpvYjVqYnBtYmllMDlvdWcgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:09:35.000Z",
+   "updated": "2025-08-17T18:09:36.004Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-08"
+   },
+   "end": {
+    "date": "2025-10-10"
+   },
+   "iCalUID": "nv4filhulajob5jbpmbie09oug@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510900362040382\"",
+   "id": "6p17geqg5r2rdnrsrivvrso490",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NnAxN2dlcWc1cjJyZG5yc3JpdnZyc280OTAgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T17:03:00.000Z",
+   "updated": "2025-08-17T17:03:01.020Z",
+   "summary": "Salmon Patties",
+   "description": "MealID:8|Servings:6|MealType:Dinner",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-10"
+   },
+   "end": {
+    "date": "2025-10-13"
+   },
+   "iCalUID": "6p17geqg5r2rdnrsrivvrso490@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Dinner",
+     "servings": "6",
+     "mealId": "8"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908357233822\"",
+   "id": "orq95l8uedine9h7qn1tff1tpo",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=b3JxOTVsOHVlZGluZTloN3FuMXRmZjF0cG8gZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:09:38.000Z",
+   "updated": "2025-08-17T18:09:38.616Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-10"
+   },
+   "end": {
+    "date": "2025-10-12"
+   },
+   "iCalUID": "orq95l8uedine9h7qn1tff1tpo@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908369048318\"",
+   "id": "02q76sb3gkbn0ku1f2r1nbacqs",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MDJxNzZzYjNna2JuMGt1MWYycjFuYmFjcXMgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:09:44.000Z",
+   "updated": "2025-08-17T18:09:44.524Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-12"
+   },
+   "end": {
+    "date": "2025-10-14"
+   },
+   "iCalUID": "02q76sb3gkbn0ku1f2r1nbacqs@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510900367303678\"",
+   "id": "sork6ecqmt0sq216rsci78d2rs",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=c29yazZlY3FtdDBzcTIxNnJzY2k3OGQycnMgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T17:03:03.000Z",
+   "updated": "2025-08-17T17:03:03.651Z",
+   "summary": "Spicy Mixed Bean & Ro-Tel Chili",
+   "description": "MealID:15|Servings:4|MealType:Dinner",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-13"
+   },
+   "end": {
+    "date": "2025-10-15"
+   },
+   "iCalUID": "sork6ecqmt0sq216rsci78d2rs@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Dinner",
+     "servings": "4",
+     "mealId": "15"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908373023326\"",
+   "id": "4a4va6dfqb39f1jgng5kber2fo",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NGE0dmE2ZGZxYjM5ZjFqZ25nNWtiZXIyZm8gZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:09:46.000Z",
+   "updated": "2025-08-17T18:09:46.511Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-14"
+   },
+   "end": {
+    "date": "2025-10-16"
+   },
+   "iCalUID": "4a4va6dfqb39f1jgng5kber2fo@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510900371692446\"",
+   "id": "s8tq7idqj6k5kso0gohm7mgo9s",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=czh0cTdpZHFqNms1a3NvMGdvaG03bWdvOXMgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T17:03:05.000Z",
+   "updated": "2025-08-17T17:03:05.846Z",
+   "summary": "Tacos or Taco Bowl",
+   "description": "MealID:5|Servings:4|MealType:Dinner",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-15"
+   },
+   "end": {
+    "date": "2025-10-17"
+   },
+   "iCalUID": "s8tq7idqj6k5kso0gohm7mgo9s@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Dinner",
+     "servings": "4",
+     "mealId": "5"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908376691070\"",
+   "id": "e53sjchp801c1aqs115i3dj814",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=ZTUzc2pjaHA4MDFjMWFxczExNWkzZGo4MTQgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:09:48.000Z",
+   "updated": "2025-08-17T18:09:48.345Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-16"
+   },
+   "end": {
+    "date": "2025-10-18"
+   },
+   "iCalUID": "e53sjchp801c1aqs115i3dj814@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510900377178526\"",
+   "id": "n29f08mj47hhtf2p1jl38hodpo",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=bjI5ZjA4bWo0N2hodGYycDFqbDM4aG9kcG8gZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T17:03:08.000Z",
+   "updated": "2025-08-17T17:03:08.589Z",
+   "summary": "Tuscan-Style Cannellini Bean Stew",
+   "description": "MealID:9|Servings:6|MealType:Dinner",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-17"
+   },
+   "end": {
+    "date": "2025-10-20"
+   },
+   "iCalUID": "n29f08mj47hhtf2p1jl38hodpo@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Dinner",
+     "servings": "6",
+     "mealId": "9"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908380421182\"",
+   "id": "tikqd0equo4nqi3qh1ia4v7g34",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=dGlrcWQwZXF1bzRucWkzcWgxaWE0djdnMzQgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:09:50.000Z",
+   "updated": "2025-08-17T18:09:50.210Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-18"
+   },
+   "end": {
+    "date": "2025-10-20"
+   },
+   "iCalUID": "tikqd0equo4nqi3qh1ia4v7g34@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908384672222\"",
+   "id": "0g7sb8n5uoout4oejj60nh3qoo",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MGc3c2I4bjV1b291dDRvZWpqNjBuaDNxb28gZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:09:52.000Z",
+   "updated": "2025-08-17T18:09:52.336Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-20"
+   },
+   "end": {
+    "date": "2025-10-22"
+   },
+   "iCalUID": "0g7sb8n5uoout4oejj60nh3qoo@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510900381853054\"",
+   "id": "i7qkdicv7cg4s8885mkpa6gjpg",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=aTdxa2RpY3Y3Y2c0czg4ODVta3BhNmdqcGcgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T17:03:10.000Z",
+   "updated": "2025-08-17T17:03:10.926Z",
+   "summary": "Yummy Chicken and Quinoa",
+   "description": "MealID:16|Servings:6|MealType:Dinner",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-20"
+   },
+   "end": {
+    "date": "2025-10-23"
+   },
+   "iCalUID": "i7qkdicv7cg4s8885mkpa6gjpg@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Dinner",
+     "servings": "6",
+     "mealId": "16"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908388182142\"",
+   "id": "fbuvecvii769cgs131joj1jdbs",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=ZmJ1dmVjdmlpNzY5Y2dzMTMxam9qMWpkYnMgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:09:53.000Z",
+   "updated": "2025-08-17T18:09:54.091Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-22"
+   },
+   "end": {
+    "date": "2025-10-24"
+   },
+   "iCalUID": "fbuvecvii769cgs131joj1jdbs@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510900414968318\"",
+   "id": "5mtkubpc6tgpggiggec0ipb884",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NW10a3VicGM2dGdwZ2dpZ2dlYzBpcGI4ODQgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T17:03:27.000Z",
+   "updated": "2025-08-17T17:03:27.484Z",
+   "summary": "Fudd Hamburger Helper",
+   "description": "MealID:4|Servings:6|MealType:Dinner",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-23"
+   },
+   "end": {
+    "date": "2025-10-26"
+   },
+   "iCalUID": "5mtkubpc6tgpggiggec0ipb884@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Dinner",
+     "servings": "6",
+     "mealId": "4"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908391973822\"",
+   "id": "o12cn1viq5eil9pnld74qh3d9c",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=bzEyY24xdmlxNWVpbDlwbmxkNzRxaDNkOWMgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:09:55.000Z",
+   "updated": "2025-08-17T18:09:55.986Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-24"
+   },
+   "end": {
+    "date": "2025-10-26"
+   },
+   "iCalUID": "o12cn1viq5eil9pnld74qh3d9c@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908395732478\"",
+   "id": "2bpbcldlqdgts50ppribq7u7v0",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MmJwYmNsZGxxZGd0czUwcHByaWJxN3U3djAgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:09:57.000Z",
+   "updated": "2025-08-17T18:09:57.866Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-26"
+   },
+   "end": {
+    "date": "2025-10-28"
+   },
+   "iCalUID": "2bpbcldlqdgts50ppribq7u7v0@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510900440308894\"",
+   "id": "qln07hkm4us7d5sh8il6glj5c8",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=cWxuMDdoa200dXM3ZDVzaDhpbDZnbGo1YzggZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T17:03:39.000Z",
+   "updated": "2025-08-17T17:03:40.154Z",
+   "summary": "Pizza Crust-GF",
+   "description": "MealID:21|Servings:6|MealType:Dinner",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-26"
+   },
+   "end": {
+    "date": "2025-10-29"
+   },
+   "iCalUID": "qln07hkm4us7d5sh8il6glj5c8@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Dinner",
+     "servings": "6",
+     "mealId": "21"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908399913502\"",
+   "id": "tf3amar87at3i105l26to101c0",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=dGYzYW1hcjg3YXQzaTEwNWwyNnRvMTAxYzAgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:09:59.000Z",
+   "updated": "2025-08-17T18:09:59.956Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-28"
+   },
+   "end": {
+    "date": "2025-10-30"
+   },
+   "iCalUID": "tf3amar87at3i105l26to101c0@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510900447655582\"",
+   "id": "mf03d9f72ii69ug8ofng94jsls",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=bWYwM2Q5ZjcyaWk2OXVnOG9mbmc5NGpzbHMgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T17:03:43.000Z",
+   "updated": "2025-08-17T17:03:43.827Z",
+   "summary": "Potato Stroganoff Hamburger Helper",
+   "description": "MealID:2|Servings:4|MealType:Dinner",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-29"
+   },
+   "end": {
+    "date": "2025-10-31"
+   },
+   "iCalUID": "mf03d9f72ii69ug8ofng94jsls@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Dinner",
+     "servings": "4",
+     "mealId": "2"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908404311326\"",
+   "id": "e7j7uc8d46pep73id7jljghkcg",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=ZTdqN3VjOGQ0NnBlcDczaWQ3amxqZ2hrY2cgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:10:01.000Z",
+   "updated": "2025-08-17T18:10:02.155Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-30"
+   },
+   "end": {
+    "date": "2025-11-01"
+   },
+   "iCalUID": "e7j7uc8d46pep73id7jljghkcg@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510900459864254\"",
+   "id": "m65d8giagipq1ivl8a8be59hjg",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=bTY1ZDhnaWFnaXBxMWl2bDhhOGJlNTloamcgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T17:03:49.000Z",
+   "updated": "2025-08-17T17:03:49.932Z",
+   "summary": "Salmon Patties",
+   "description": "MealID:8|Servings:6|MealType:Dinner",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-10-31"
+   },
+   "end": {
+    "date": "2025-11-03"
+   },
+   "iCalUID": "m65d8giagipq1ivl8a8be59hjg@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Dinner",
+     "servings": "6",
+     "mealId": "8"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908409585982\"",
+   "id": "u4ccegp83000klfmafehelsb78",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=dTRjY2VncDgzMDAwa2xmbWFmZWhlbHNiNzggZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:10:04.000Z",
+   "updated": "2025-08-17T18:10:04.792Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-11-01"
+   },
+   "end": {
+    "date": "2025-11-03"
+   },
+   "iCalUID": "u4ccegp83000klfmafehelsb78@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510900470440990\"",
+   "id": "515ci8bbc7ecefikhf5ps1t8is",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NTE1Y2k4YmJjN2VjZWZpa2hmNXBzMXQ4aXMgZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T17:03:55.000Z",
+   "updated": "2025-08-17T17:03:55.220Z",
+   "summary": "Tacos or Taco Bowl",
+   "description": "MealID:5|Servings:4|MealType:Dinner",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-11-03"
+   },
+   "end": {
+    "date": "2025-11-05"
+   },
+   "iCalUID": "515ci8bbc7ecefikhf5ps1t8is@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Dinner",
+     "servings": "4",
+     "mealId": "5"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"3510908413977918\"",
+   "id": "7utii624sof7mvqq91b153pv98",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=N3V0aWk2MjRzb2Y3bXZxcTkxYjE1M3B2OTggZDEzYmM0Mjk3NjBiM2ZlYWEwZThjYTJmMWI1MGVhOWU5ZTI1Y2YzYTdkOTY2ZTQ2MTIwYjA5Y2NkZmYyOTVhY0Bn",
+   "created": "2025-08-17T18:10:06.000Z",
+   "updated": "2025-08-17T18:10:06.988Z",
+   "summary": "Black Beans and Rice",
+   "description": "MealID:32|Servings:4|MealType:Lunch",
+   "creator": {
+    "email": "daryllackey@gmail.com"
+   },
+   "organizer": {
+    "email": "d13bc429760b3feaa0e8ca2f1b50ea9e9e25cf3a7d966e46120b09ccdff295ac@group.calendar.google.com",
+    "displayName": "RV Meals",
+    "self": true
+   },
+   "start": {
+    "date": "2025-11-03"
+   },
+   "end": {
+    "date": "2025-11-05"
+   },
+   "iCalUID": "7utii624sof7mvqq91b153pv98@google.com",
+   "sequence": 0,
+   "extendedProperties": {
+    "private": {
+     "mealType": "Lunch",
+     "servings": "4",
+     "mealId": "32"
+    }
+   },
+   "reminders": {
+    "useDefault": false
+   },
+   "eventType": "default"
+  }
+ ]
+}

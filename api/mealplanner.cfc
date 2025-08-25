@@ -51,7 +51,7 @@ component {
                     mi.miID,
                     mi.mealID,
                     mi.ingredientID,
-                    mi.unit,
+                    mi.unitID,
                     r.ingredient_name,
                     uom.unitName,
                     uom.baseUnit,
@@ -62,7 +62,7 @@ component {
                 From
                     meal_ingredients mi Left Join
                     raw_ingredients r On r.ingredientID = mi.ingredientID Left Join
-                    measurementunits uom On uom.unitID = mi.unit Left Join
+                    measurementunits uom On uom.unitID = mi.unitID Left Join
                     quantity_options q On q.quantityID = mi.quantityID
                 Where
                     mi.mealID = :mealId
@@ -307,7 +307,7 @@ component {
 
         var mealsQ = queryExecute(
             "Select
-                m.mealID As mealID1,
+                m.mealID,
                 m.title,
                 m.servings,
                 m.mealTypeID,
@@ -317,7 +317,7 @@ component {
                 mi.miID,
                 mi.ingredientID,
                 -- mi.quantity,
-                mi.unit,
+                mi.unitID,
                 mi.quantityID,
                 
                 r.ingredient_name,
@@ -331,7 +331,7 @@ component {
             From
                 meal_ingredients mi Left Join
                 raw_ingredients r On r.ingredientID = mi.ingredientID Left Join
-                measurementunits uom On uom.unitID = mi.unit Right Join
+                measurementunits uom On uom.unitID = mi.unitID Right Join
                 meals m On mi.mealID = m.mealID Left Join
                 meal_types mt On m.mealTypeID = mt.mealTypeID
             Where
@@ -478,7 +478,7 @@ component {
             From
                 meal_ingredients mi Left Join
                 raw_ingredients r On r.ingredientID = mi.ingredientID Left Join
-                measurementunits u On u.unitID = mi.unit Left Join
+                measurementunits u On u.unitID = mi.unitID Left Join
                 quantity_options q1 On q1.quantityID = mi.quantityID Right Join
                 meals m On mi.mealID = m.mealID
             Where
@@ -488,7 +488,7 @@ component {
                 m.mealID,
                 m.servings,
                 r.ingredient_name,
-                mi.unit,
+                mi.unitID,
                 mi.ingredientID,
                 u.unitName,
                 u.baseUnit,
@@ -512,7 +512,6 @@ component {
 
                 totalQuantityFraction        : ingredientQry.totalQuantityFraction[i],
                 optionValue        : ingredientQry.totalQuantityDecimal[i],
-                baseUnit        : ingredientQry.baseUnit[i],
                 baseUnit        : ingredientQry.baseUnit[i]
             };
             arrayAppend(result, ingredientData);

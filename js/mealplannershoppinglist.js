@@ -42,6 +42,14 @@ $(function() {
   });
 });
 
+$(CONFIG.selectors.dateFilter).on('apply.daterangepicker', function(ev, picker) {
+    $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+    
+    // Update hidden fields with ISO formatted dates
+    $('#startDate').val(picker.startDate.format('YYYY-MM-DD'));
+    $('#endDate').val(picker.endDate.format('YYYY-MM-DD'));
+});
+
 /**
  * Main function to load and process meal events
  */

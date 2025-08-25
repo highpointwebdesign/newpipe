@@ -45,14 +45,14 @@
 						for (i = 1; i <= arrayLen(ingredientIDArray); i++) {
 						 try {
 						    queryExecute(
-							    "INSERT INTO meal_ingredients (mealID, ingredientID, quantityID, unit)
-							     SELECT :mealId, :ingredientID, :quantityID, :unit
+							    "INSERT INTO meal_ingredients (mealID, ingredientID, quantityID, unitID)
+							     SELECT :mealId, :ingredientID, :quantityID, :unitID
 							     WHERE :ingredientID > 0",
 							    {
 							        mealId      : form.mealId,
 							        ingredientID: ingredientIDArray[i],
 							        quantityID  : quantityIDArray[i],
-							        unit        : uomArray[i]
+							        unitID        : uomArray[i]
 							    },
 							    { datasource = 'sg' }
 							);
@@ -61,6 +61,8 @@
 							    writeLog(file="mealplanner", text="Error inserting ingredient #i#: #e.message#");							    
 							    result.status=0;
 							    result.msg = 'We dropped the fork on this one. The Chef has been notified.'; 
+							    dump(e);
+							    abort;
 							    location url="/meal_crud.cfm?id=#form.mealID#&action=#form.action#&status=#result.status#&msg=#result.msg###bottom" addtoken="false";
 							}
 						}
@@ -96,6 +98,8 @@
                 },
                 { datasource = 'sg' }
             );
+				result.msg ="Ingredient removed.";
+				result.status = 1;
 
 		} catch (any e) {
 		    // Log the error but continue with the next iteration

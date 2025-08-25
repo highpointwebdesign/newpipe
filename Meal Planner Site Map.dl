@@ -1,0 +1,13 @@
+Meal Planner Site Map
+-	Meal Planner (home page) https://localhost/calendar.htm
+- 	Meal Cards https://localhost/
+	-	Add/Edit
+	
+-	Shopping List https://localhost/mealplannershoppinglist.htm
+-	Settings https://localhost/inventoryMgmt.htm
+	-	Meal Card Options (https://localhost/manageoptions.cfm)
+		-	Units of Measurements
+		- 	Meal Types
+		- 	Quantity Options
+		-	Tags ()
+		-	Categories
