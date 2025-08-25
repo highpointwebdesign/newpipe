@@ -1,6 +1,177 @@
 component {
     <!--- Set your datasource name here --->
     property name="datasource" default="sg";
+
+    remote any function getRecipesForDateRange(startDate, endDate) returnformat="json" {
+        var result = {};
+        var mealsQ = queryExecute(
+            "Select
+                c.mealID,
+                c.startDate,
+                m.title,
+                m.servings,
+                m.mealTypeID,
+                mc.charmName,
+                r.ingredient_name,
+                q.optionValue,
+                q.textValue,
+                u.unitName,
+                u.baseUnit,
+                u.unitID,
+                u.unitType,
+                u.isIndivisible
+            From
+                meal_calendar_events c Left Join
+                meals m On c.mealID = m.mealID Left Join
+                meal_ingredients i On i.mealID = m.mealID Left Join
+                meal_types t On m.mealTypeID = t.mealTypeID Left Join
+                meal_charms mc On t.charmID = mc.charmID Left Join
+                raw_ingredients r On i.ingredientID = r.ingredientID Left Join
+                quantity_options q On i.quantityID = q.quantityID Inner Join
+                measurementunits u On i.unit = u.unitID
+            Where
+                c.startDate Between :startDate And :endDate
+            ORDER BY 
+                m.title",
+            { 
+                startDate: { value: arguments.startDate, cfsqltype: "CF_SQL_VARCHAR", list:"false" },
+                endDate: { value: arguments.endDate, cfsqltype: "CF_SQL_VARCHAR", list:"false" }
+            },
+            { datasource = variables.datasource }
+        );
+
+        // Create a struct to track unique meals by ID
+        var mealMap = {};
+        
+        for (var i = 1; i <= mealsQ.recordCount; i++) {
+            var currentMealID = mealsQ.mealID[i];
+            
+            // If this is the first time we're seeing this meal, add it to our map
+            if (!structKeyExists(mealMap, currentMealID)) {
+                mealMap[currentMealID] = {
+                    mealID      : currentMealID,
+                    startDate   : mealsQ.startDate[i],
+                    title       : mealsQ.title[i],
+                    servings    : mealsQ.servings[i],
+                    mealTypeID  : mealsQ.mealTypeID[i],
+                    charmName   : mealsQ.charmName[i],
+                    ingredients : []
+                };
+            }
+            
+            // Add ingredient to the meal if it exists
+            if (len(trim(mealsQ.ingredient_name[i] ?: ""))) {
+                var ingredient = {
+                    name        : mealsQ.ingredient_name[i],
+                    optionValue : mealsQ.optionValue[i],
+                    textValue   : mealsQ.textValue[i],
+                    unitName    : mealsQ.unitName[i],
+                    baseUnit    : mealsQ.baseUnit[i],
+                    unitType    : mealsQ.unitType[i],
+                    unitID    : mealsQ.unitID[i],
+                    isIndivisible: mealsQ.isIndivisible[i]
+                };
+                
+                arrayAppend(mealMap[currentMealID].ingredients, ingredient);
+            }
+        }
+        
+        // Convert the struct to an array for the final result
+        var result = [];
+        for (var mealID in mealMap) {
+            arrayAppend(result, mealMap[mealID]);
+        }
+        // dump(getRecipesForDateRange);
+        // abort;
+        return result;
+    }
+
+    remote any function getIngredientsForSelectedMeals(startDate, endDate) returnformat="json" {
+        var result = {};
+        var mealsQ = queryExecute(
+            "Select
+                r.ingredient_name,
+                Sum(q.optionValue) As totalQuantity,
+                u.unitName,
+                i.ingredientID,
+                u.baseUnit,
+                u.unitType,
+                u.isIndivisible
+            From
+                meal_calendar_events c Left Join
+                meals m On c.mealID = m.mealID Left Join
+                meal_ingredients i On i.mealID = m.mealID Left Join
+                raw_ingredients r On i.ingredientID = r.ingredientID Left Join
+                quantity_options q On i.quantityID = q.quantityID Left Join
+                measurementunits u On u.unitID = i.unitID
+            Where
+                c.startDate Between :startDate And :endDate
+            Group By
+                r.ingredient_name,
+                u.unitName,
+                i.ingredientID,
+                u.baseUnit,
+                u.unitType,
+                u.isIndivisible
+            Order By
+                i.ingredientID,
+                u.unitName,
+                Sum_optionValue",
+            { 
+                startDate: { value: arguments.startDate, cfsqltype: "CF_SQL_VARCHAR", list:"false" },
+                endDate: { value: arguments.endDate, cfsqltype: "CF_SQL_VARCHAR", list:"false" }
+            },
+            { datasource = variables.datasource }
+        );
+
+        // Create a struct to track unique meals by ID
+        var mealMap = {};
+        
+        for (var i = 1; i <= mealsQ.recordCount; i++) {
+            var currentMealID = mealsQ.mealID[i];
+            
+            // If this is the first time we're seeing this meal, add it to our map
+            if (!structKeyExists(mealMap, currentMealID)) {
+                mealMap[currentMealID] = {
+                    mealID      : currentMealID,
+                    startDate   : mealsQ.startDate[i],
+                    title       : mealsQ.title[i],
+                    servings    : mealsQ.servings[i],
+                    mealTypeID  : mealsQ.mealTypeID[i],
+                    charmName   : mealsQ.charmName[i],
+                    ingredients : []
+                };
+            }
+            
+            // Add ingredient to the meal if it exists
+            if (len(trim(mealsQ.ingredient_name[i] ?: ""))) {
+                var ingredient = {
+                    name        : mealsQ.ingredient_name[i],
+                    optionValue : mealsQ.optionValue[i],
+                    textValue   : mealsQ.textValue[i],
+                    unitName    : mealsQ.unitName[i],
+                    baseUnit    : mealsQ.baseUnit[i],
+                    unitType    : mealsQ.unitType[i],
+                    unitID    : mealsQ.unitID[i],
+                    isIndivisible: mealsQ.isIndivisible[i]
+                };
+                
+                arrayAppend(mealMap[currentMealID].ingredients, ingredient);
+            }
+        }
+        
+        // Convert the struct to an array for the final result
+        var result = [];
+        for (var mealID in mealMap) {
+            arrayAppend(result, mealMap[mealID]);
+        }
+        // dump(getRecipesForDateRange);
+        // abort;
+        return result;
+    }
+
+
+
     
     /**
      * getMeals()
@@ -388,10 +559,9 @@ component {
         // The list attribute in the options ensures that the mealIds parameter (a comma-separated list)
         // is properly expanded into multiple values.
         var sql = "
-            SELECT id, meal_id, ingredient_name, quantity, unit
+            SELECT miID, mealID, ingredientID, unit, quantityID
             FROM meal_ingredients
-            WHERE meal_id IN (:mealIds)
-            ORDER BY ingredient_name ASC
+            WHERE mealID IN (:mealIds)
         ";
         
         var ingredientQry = queryExecute(
@@ -402,10 +572,10 @@ component {
 
         for (var i = 1; i <= ingredientQry.recordCount; i++) {
             var ingredientData = {
-                id              : ingredientQry.id[i],
-                meal_id         : ingredientQry.meal_id[i],
-                ingredient : ingredientQry.ingredient_name[i],
-                quantity        : ingredientQry.quantity[i],
+                id              : ingredientQry.miID[i],
+                meal_id         : ingredientQry.mealID[i],
+                ingredient : ingredientQry.ingredientID[i],
+                quantity        : ingredientQry.quantityID[i],
                 unit            : ingredientQry.unit[i]
             };
             arrayAppend(result, ingredientData);

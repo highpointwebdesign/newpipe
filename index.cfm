@@ -33,7 +33,7 @@
                   <li><a href="index.htm">RV MEAL PLANNER</a></li>
                   <li><a class="nav-link" href="/" id="menu-recipes">MEAL CARDS</a></li>
                   <li><a class="nav-link" href="calendar.htm" id="menu-calendar">MEAL PLANNER</a></li>
-                  <li><a class="nav-link" href="mealplannershoppinglist.htm" id="menu-shopping_list">SHOPPING LIST</a></li>
+                  <li><a class="nav-link" href="mealplannershoppinglist.cfm" id="menu-shopping_list">SHOPPING LIST</a></li>
                   <li><a class="nav-link" href="inventoryMgmt.htm" id="menu-shopping_list">INVENTORY MGMT (Beta)</a></li>
                 </ul>
             </div>
