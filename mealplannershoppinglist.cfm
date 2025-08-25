@@ -272,34 +272,7 @@
           </div>
 
           <div class="row">
-            <div class="col-md-6">
-              <div id="accordion-ShoppingList" class="accordion accordion-no-gutter">
-                <div class="accordion__item">
-                  <div class="accordion__header <cfif local.isFormSubmit eq 1> <cfelse>collapsed></cfif>" data-bs-toggle="collapse" data-bs-target="#bordered_no-gutter_collapseShoppingList" style="background-color: #1ab5ac; color: #ffffff">
-                    <span class="accordion__header--text">SHOPPING LIST</span>
-                    <span class="accordion__header--indicator style_two"></span>
-                  </div>
-                  <div id="bordered_no-gutter_collapseShoppingList" class="collapse accordion__body <cfif local.isFormSubmit eq 1>collapse show</cfif>" data-bs-parent="#accordion-ShoppingList" style="background-color: #ffffff;">
-                    <div class="accordion__body--text">
-                      <div id="shoppingList">
-                        <cfif local.isFormSubmit eq 1>
-                          <ul>
-                          <cfoutput query="ingredientQry">
-                            <li>#ingredientQry.textValue# #ingredientQry.baseUnit# of #ingredientQry.ingredient_name#</li>
-                          </cfoutput>
-                          </ul>
-                        </cfif>
-                      </div>
-                      <div id="eachNoteContainer" class="">
-                        <div class="alert alert-outline-info alert-dismissible fade show">
-                            <strong>NOTE:</strong> Ingredients sold in indivisible units (e.g. each, piece) are rounded up to the next whole number.  
-                        </div>                            
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
 
             <div class="col-md-6">
               <div id="accordion-MealList" class="accordion accordion-no-gutter">
@@ -315,7 +288,19 @@
                         <cfif local.isFormSubmit eq 1>
                           <ul>
                           <cfoutput query="distinctMeals">
-                            <li>#distinctMeals.title#</li>
+                            <!--- <li>#distinctMeals.title#</li> --->
+                            <li class="list-group-item">
+                                <div class="form-check d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <label class="form-check-label">
+                                            #distinctMeals.title#
+                                        </label>
+                                    </div>
+                                    <!--- <span class="text-muted">
+                                        Inventory: ${current_quantity}
+                                    </span> --->
+                                </div>
+                            </li>
                           </cfoutput>
                           </ul>
                         </cfif>
@@ -326,7 +311,46 @@
               </div>
             </div>
 
-
+            <div class="col-md-6">
+              <div id="accordion-ShoppingList" class="accordion accordion-no-gutter">
+                <div class="accordion__item">
+                  <div class="accordion__header <cfif local.isFormSubmit eq 1> <cfelse>collapsed></cfif>" data-bs-toggle="collapse" data-bs-target="#bordered_no-gutter_collapseShoppingList" style="background-color: #1ab5ac; color: #ffffff">
+                    <span class="accordion__header--text">SHOPPING LIST</span>
+                    <span class="accordion__header--indicator style_two"></span>
+                  </div>
+                  <div id="bordered_no-gutter_collapseShoppingList" class="collapse accordion__body <cfif local.isFormSubmit eq 1>collapse show</cfif>" data-bs-parent="#accordion-ShoppingList" style="background-color: #ffffff;">
+                    <div class="accordion__body--text">
+                      <div id="shoppingList">
+                        <cfif local.isFormSubmit eq 1>
+                          <ul>
+                          <cfoutput query="ingredientQry">
+                            <!--- <li>#ingredientQry.textValue# #ingredientQry.baseUnit# of #ingredientQry.ingredient_name#</li> --->
+                             <li class="list-group-item">
+                                <div class="form-check d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <label class="form-check-label">
+                                          <input class="form-check-input item-checkbox" type="checkbox">&nbsp;#ingredientQry.textValue# #ingredientQry.baseUnit# of #ingredientQry.ingredient_name#
+                                        </label>
+                                    </div>
+                                    <!--- <span class="text-muted">
+                                        Inventory: ${current_quantity}
+                                    </span> --->
+                                </div>
+                            </li>
+                          </cfoutput>
+                          </ul>
+                        </cfif>
+                      </div>
+                      <div id="eachNoteContainer" class="">
+                        <div class="alert alert-outline-info alert-dismissible fade show">
+                            <strong>NOTE:</strong> Ingredients sold in indivisible units (e.g. each, piece) are rounded up to the next whole number.  
+                        </div>                            
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           
           </div>
 
