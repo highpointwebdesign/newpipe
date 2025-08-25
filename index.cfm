@@ -11,13 +11,16 @@
   <!-- Bootstrap Icons (for trash can icon) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
   <!-- <link href="css/main.css?verion=1" rel="stylesheet"> -->
+  <!-- Toastr -->
+  <link rel="stylesheet" href="vendor/toastr/css/toastr.min.css">
+
   <link href="css/styles.css?verion=1" rel="stylesheet">
   <link href="css/index.css?verion=1" rel="stylesheet">
 
 
 
   <style>
-    #mealType {
+    #mealTypeID {
       line-height:3.0 !important
     }
   </style>
@@ -32,8 +35,9 @@
                 <ul class="metismenu" id="menu">
                   <li><a href="index.htm">RV MEAL PLANNER</a></li>
                   <li><a class="nav-link" href="/" id="menu-recipes">MEAL CARDS</a></li>
-                  <li><a class="nav-link" href="calendar.htm" id="menu-calendar">MEAL PLANNER</a></li>
-                  <li><a class="nav-link" href="mealplannershoppinglist.cfm" id="menu-shopping_list">SHOPPING LIST</a></li>
+                  <li><a class="nav-link" href="calendar.cfm" id="menu-calendar">MEAL PLANNER</a></li>
+                  <li><a class="nav-link" href="mealplannershoppinglist.htm" id="menu-shopping_list">SHOPPING LIST</a></li>
+                  <li><a class="nav-link" href="/manageoptions.cfm" id="menu-manage-options">MANAGE OPTIONS</a></li>
                   <li><a class="nav-link" href="inventoryMgmt.htm" id="menu-shopping_list">INVENTORY MGMT (Beta)</a></li>
                 </ul>
             </div>
@@ -44,24 +48,25 @@
   <div class="content-body">
 
     <div class="row">
-      <div class="col-sm-2">
-        <div class="position-sticky" style="top: 2rem;">
+      <div class="col-sm-1">
+        <!--- <div class="position-sticky" style="top: 2rem;">
           <div class="p-4">
             <h3 class="mb-4 border-bottom">
               Actions
             </h3>            
               <div class="d-grid gap-2">
               <!-- <li><a href="#">April 2020</a></li> -->
-                <a class="btn btn-primary" href="#" id="menu-add">Toggle Meal Form</a>
+                <a class="btn btn-primary" href="#" id="menu-add">Add Meal</a>
                 <!-- <a class="btn btn-primary" href="#" id="menu-shopping">Shopping List</a> -->
-                <a class="btn btn-secondary" href="#" id="menu-importFromTrello">Update Database</a>
+                <!--- <a class="btn btn-secondary" href="#" id="menu-importFromTrello">Update Database</a> --->
               </div>
           </div>        
-        </div>
+        </div> --->
       </div>
       <div class="col-sm-10">
         <h3 class="mb-4 border-bottom" style="padding-top: 20px;">
           Meal Cards
+          <div class="pull-right"><a class="btn btn-primary" href="#" id="menu-add">Add Meal</a></div>
         </h3>            
         <!-- main content here -->
 
@@ -73,7 +78,7 @@
                 <h5 class="card-title">Meal Details</h5>
               </div>
               <div class="card-body">
-                  <input type="hidden" id="mealId" value="">
+                  <!--- <input type="hidden" id="mealId" value=""> --->
                   <div class="mb-3">
                     <label for="mealTitle" class="form-label">Meal Title</label>
                     <input type="text" class="form-control" id="mealTitle" required />
@@ -86,8 +91,8 @@
                         <input type="number" class="form-control" id="servings" value="4" step="2" required/>
                       </div>
                       <div class="col-md-6">
-                        <label for="mealType" class="form-label">Meal Type</label>
-                        <select id="mealType" class="form-select" required>
+                        <label for="mealTypeID" class="form-label">Meal Type</label>
+                        <select id="mealTypeID" class="form-select" required>
                           <option></option> <!-- Empty option for placeholder -->
                         </select>
                       </div>
@@ -100,7 +105,7 @@
                       </div>
                     </div>
                   </div>
-                  <div id="ingredientsContainer">
+                  <!--- <div id="ingredientsContainer">
                     <!-- <label class="form-label">Ingredients</label> -->
                     <label class="form-label">Ingredients</label>
                     <div class="ingredient-row row mb-2">
@@ -130,13 +135,13 @@
                       <button type="button" id="addIngredientBtn" class="btn btn-rounded btn-secondary"><span class="btn-icon-left text-secondary"><i class="fa fa-plus color-secondary"></i>
                                       </span>Add Ingredient</button>                    
                     </div>
-                  </div>
+                  </div> --->
               </div>
               <div class="card-footer">
                 <!-- <a href="javascript:void(0);" class="card-link d-inline btn btn-primary">Save</a> -->
                 <div class="toolbar toolbar-bottom" role="toolbar" style="text-align: right;">
                   <button id="cancelMeal" class="btn btn-light" type="button">Cancel</button>
-                  <button type="submit" class="btn btn-primary">Save Meal</button>
+                  <button type="submit" class="btn btn-primary">Next (Add Ingredients)</button>
                 </div>
               </div>
             </div>
@@ -193,129 +198,7 @@
               </div>
             </div>
 
-            <div class="col">            
-              <div class="card">
-                <div class="card-header">
-                  <div class="skeleton title"></div>
-                </div>
-                <div class="card-body">
-                  <div id="skeleton_1" class="accordion accordion-no-gutter">
-                    <div class="accordion__item">
-                      <div class="accordion__header collapsed"
-                           data-bs-toggle="collapse"
-                           data-bs-target="#ingredientList_1"
-                           aria-expanded="false">
-                        <span class="accordion__header--text"><div class="skeleton text-line short"></div></span>
-                        <span class="accordion__header--indicator style_two"></span>
-                      </div>
-                      <div id="ingredientList_1"
-                           class="accordion__body collapse"
-                           data-bs-parent="#skeleton_1">
-                        <div class="accordion__body--text">
-                            <div class="skeleton title"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <p class="card-text d-inline"><div class="skeleton text-line short"></div></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">            
-              <div class="card">
-                <div class="card-header">
-                  <div class="skeleton title"></div>
-                </div>
-                <div class="card-body">
-                  <div id="skeleton_1" class="accordion accordion-no-gutter">
-                    <div class="accordion__item">
-                      <div class="accordion__header collapsed"
-                           data-bs-toggle="collapse"
-                           data-bs-target="#ingredientList_1"
-                           aria-expanded="false">
-                        <span class="accordion__header--text"><div class="skeleton text-line short"></div></span>
-                        <span class="accordion__header--indicator style_two"></span>
-                      </div>
-                      <div id="ingredientList_1"
-                           class="accordion__body collapse"
-                           data-bs-parent="#skeleton_1">
-                        <div class="accordion__body--text">
-                            <div class="skeleton title"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <p class="card-text d-inline"><div class="skeleton text-line short"></div></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">            
-              <div class="card">
-                <div class="card-header">
-                  <div class="skeleton title"></div>
-                </div>
-                <div class="card-body">
-                  <div id="skeleton_1" class="accordion accordion-no-gutter">
-                    <div class="accordion__item">
-                      <div class="accordion__header collapsed"
-                           data-bs-toggle="collapse"
-                           data-bs-target="#ingredientList_1"
-                           aria-expanded="false">
-                        <span class="accordion__header--text"><div class="skeleton text-line short"></div></span>
-                        <span class="accordion__header--indicator style_two"></span>
-                      </div>
-                      <div id="ingredientList_1"
-                           class="accordion__body collapse"
-                           data-bs-parent="#skeleton_1">
-                        <div class="accordion__body--text">
-                            <div class="skeleton title"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <p class="card-text d-inline"><div class="skeleton text-line short"></div></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">            
-              <div class="card">
-                <div class="card-header">
-                  <div class="skeleton title"></div>
-                </div>
-                <div class="card-body">
-                  <div id="skeleton_1" class="accordion accordion-no-gutter">
-                    <div class="accordion__item">
-                      <div class="accordion__header collapsed"
-                           data-bs-toggle="collapse"
-                           data-bs-target="#ingredientList_1"
-                           aria-expanded="false">
-                        <span class="accordion__header--text"><div class="skeleton text-line short"></div></span>
-                        <span class="accordion__header--indicator style_two"></span>
-                      </div>
-                      <div id="ingredientList_1"
-                           class="accordion__body collapse"
-                           data-bs-parent="#skeleton_1">
-                        <div class="accordion__body--text">
-                            <div class="skeleton title"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <p class="card-text d-inline"><div class="skeleton text-line short"></div></p>
-                </div>
-              </div>
-            </div>
+           
 
             
           </div>
@@ -333,7 +216,9 @@
   <!--- select2 --->
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <!-- show more -->
-  <script src="js/jquery.expander.js"></script>
+  <!--- <script src="js/jquery.expander.js"></script> --->
+  <!-- Toastr -->
+  <script src="vendor/toastr/js/toastr.min.js"></script>
 
   <!-- include summernote css/js -->
   <!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">

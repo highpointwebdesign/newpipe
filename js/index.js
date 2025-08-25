@@ -480,28 +480,47 @@ console.log(ingredientsList);
 
       // Initialize Select2 without AJAX (for short list)
       $(document).ready(function() {
-        $('#mealType').select2({
+        $('#mealTypeID').select2({
           placeholder: 'Select Meal Type',
-          dropdownParent:$('#mealType').parent(),
+          dropdownParent: $('#mealTypeID').parent(),
           allowClear: false,
-          templateResult: formatMealType
+          templateResult: formatMealType,
+          ajax: {
+            url: '/api/mealplanner.cfc?method=mealtypesForSelectOption',
+            dataType: 'json',
+            delay: 250,
+            cache: true,
+            processResults: function(data) {
+              // Format the data for Select2
+              return {
+                results: data.map(function(item) {
+                  return {
+                    id: item.id,
+                    text: item.text,
+                    value: item.value
+                  };
+                })
+              };
+            },
+            error: function(xhr, status, error) {
+              console.error('Select2 AJAX error:', error);
+            }
+          },
+          // Preserve selected options when searching
+          minimumInputLength: 0
         });
         
-        // Load data once and populate Select2
+        // If you need to preselect a value
+        // This will make an initial AJAX request and select the first item
         $.ajax({
           url: '/api/mealplanner.cfc?method=mealtypesForSelectOption',
           dataType: 'json',
           success: function(data) {
-            // Clear existing options
-            $('#mealType').empty().append('<option></option>');
-            
-            // Add new options
-            $.each(data, function(i, item) {
-              $('#mealType').append(new Option(item.text, item.id, false, false));
-            });
-            
-            // Trigger change to refresh Select2
-            $('#mealType').trigger('change');
+            if (data && data.length > 0) {
+              // Create the option element
+              var option = new Option(data[0].text, data[0].id, true, true);
+              $('#mealTypeID').append(option).trigger('change');
+            }
           }
         });
       });
